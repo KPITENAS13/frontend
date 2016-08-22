@@ -103,6 +103,12 @@ $_SESSION['pesan'] = '';
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="printqrcode.php">
+                <i class="menu-icon icon-barcode"></i>
+                Print QR Code
+            </a>
+        </li>
     </ul>
     <!--/.widget-nav-->
     <ul class="widget widget-menu unstyled">
