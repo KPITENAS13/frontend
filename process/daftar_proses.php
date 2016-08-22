@@ -23,7 +23,7 @@ if ($Lid == 4) {
 	</script>";
     }
 } else {
-    if (mysql_query("INSERT INTO mahasiswa VALUES('$id','$pass','$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]')")) {
+    if (mysql_query("INSERT INTO mahasiswa (id,pin,nama,jk,tgl_lahir,no_telp,alamat) VALUES($id,$pass,'$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]')")) {
         echo"
 	<script>
 		alert('Terima kasih telah mendaftar. Sekarang anda dapat masuk..!');

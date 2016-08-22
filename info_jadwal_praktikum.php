@@ -59,9 +59,6 @@ session_start();
                                         Periode
                                     </th>
                                     <th>
-                                        Semester
-                                    </th>
-                                    <th>
                                         Nama Praktikum
                                     </th>
                                     <th>
@@ -86,9 +83,6 @@ session_start();
                                         Periode
                                     </th>
                                     <th>
-                                        Semester
-                                    </th>
-                                    <th>
                                         Nama Praktikum
                                     </th>
                                     <th>
@@ -102,7 +96,7 @@ session_start();
                                     </th>
                                 </tr>
                             </tfoot>
-                        </table>zz
+                        </table>
                     </div>
                 </div>
             </div>
@@ -185,11 +179,18 @@ session_start();
         <script src="js/main.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/jquery-1.12.3.js"></script>
+        <script src="js/tooltip.js"></script>
+        <script src="js/popover.js"></script>
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
                 $('#table_id').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="popover"]').popover();
             });
         </script>
     </body>

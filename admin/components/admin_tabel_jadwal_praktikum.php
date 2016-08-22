@@ -5,7 +5,6 @@ while ($r = mysql_fetch_array($q)) {
     echo "
         <tr>
             <td><a href='admin_info_jadwal_praktikum.php?update=true&&id=$r[id]'><i class='menu-icon icon-edit'></i></a> $r[periode]</td>
-            <td>$r[semester]</td>
             <td>$r[nama_praktikum]</td>
             <td>$r[kelas]</td>
             <td>$r[waktu]</td>
