@@ -87,7 +87,7 @@
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="form-group">
                                 <label>ID *</label>
-                                <input type="text" name="kode" class="form-control" required="required" maxlength="9" placeholder="Masukkan NID / NRP">
+                                <input type="text" name="kode" class="form-control" required="required" maxlength="9" placeholder="Masukkan NID / NRP" autofocus>
                             </div>
                             <div class="form-group">
                                 <label>Kata Sandi *</label>
@@ -115,11 +115,11 @@
                             </div>
                             <div class="form-group">
                                 <label>No. HP</label>
-                                <input type="text" class="form-control" name="telp">
+                                <input type="text" class="form-control" name="telp" required="required" placeholder="Masukkan Nomor HP">
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea class="form-control" rows="3" name="alamat"></textarea>
+                                <textarea class="form-control" rows="3" name="alamat" required="required" style="height: 150px; max-height: 200px;resize: vertical" placeholder="Masukkan Alamat"></textarea>
                             </div>  
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" name="submit">
@@ -201,6 +201,7 @@
         </footer><!--/#footer-->
 
         <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/jquery.isotope.min.js"></script>
