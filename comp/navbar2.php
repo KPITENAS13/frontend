@@ -17,8 +17,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Lab <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Peminjaman Penelitian</a></li>
-                        <li><a href="#">Inventaris</a></li>
+                        <li><a href="user_peminjaman_penelitian.php">Peminjaman Penelitian</a></li>
+                        <li><a href="user_inventaris.php">Inventaris</a></li>
                         <li><a href="info_jadwal_lab.php">Jadwal Penggunaan Lab</a></li>
                         <li><a href="info_jadwal_praktikum.php#">Jadwal Praktikum</a></li>
                         <li><a href="info_topik_TA.php">Topik TA</a></li>

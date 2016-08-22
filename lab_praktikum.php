@@ -120,10 +120,10 @@ session_start();
                                 Permintaan Sedang Diproses
                             </button>';
                         } else if ($row['approve'] == "Y") {
-                            echo '
-                            <button class="btn btn-primary btn-lg" >
+                            echo "
+                            <a href='user_peminjaman_praktikum.php?praktikum=$_POST[kategori]' class='btn btn-primary btn-lg' >
                                 Peminjaman Peralatan Praktikum
-                            </button>';
+                            </a>";
                         }
                         ?>
                     </div>

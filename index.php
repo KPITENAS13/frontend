@@ -44,6 +44,15 @@ session_start();
     </head><!--/head-->
 
     <body class="homepage">
+        <?php
+        include "koneksi.php";
+        //        menampilkan pesan jika ada pesan
+        if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
+            echo '<div class="pesan" align="center">' . $_SESSION['pesan'] . '</div>';
+        }
+        //        mengatur session pesan menjadi kosong
+        $_SESSION['pesan'] = '';
+        ?>
         <header id="header">
             <?php
             if (empty($_SESSION['username'])) {
@@ -55,7 +64,7 @@ session_start();
         </header><!--header-->
 
         <section id="main-slider" class="no-margin">
-            <div class="carousel slide">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#main-slider" data-slide-to="0" class="active"></li>
                     <li data-target="#main-slider" data-slide-to="1"></li>
@@ -490,5 +499,6 @@ session_start();
         <script src="js/jquery.isotope.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="admin/scripts/jquery.min.js"></script>
     </body>
 </html>

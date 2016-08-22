@@ -58,7 +58,7 @@ session_start();
                                             - Pemrograman Dasar <br>
                                             - Organisasi & Arsitektur Komputer
                                         </p>
-                                        <a class="preview" href="http://10.243.114.103:8080/video" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
+                                        <a class="preview" href="http://10.82.245.79:8080/video" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
                                     </div> 
                                 </div>
                             </div>
