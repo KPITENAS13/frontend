@@ -1,8 +1,8 @@
 <?php
 
 include "../koneksi.php";
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['username2'];
+$password = $_POST['password2'];
 $digit = strlen($username);
 
 if ($digit == 4) { //cek digit untuk dosen

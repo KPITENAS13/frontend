@@ -83,7 +83,7 @@
             <div class="container wow fadeInDown" data-wow-delay="300ms"> 
                 <div class="row contact-wrap"> 
                     <div class="status alert alert-success" style="display: none"></div>
-                    <form class="form-horizontal" name="formreg" method="post" action="process/daftar_proses.php">
+                    <form class="form-horizontal" name="formreg" method="post" action="process/daftar_proses.php" onsubmit="return validasi(this)">
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="form-group">
                                 <label>ID *</label>
