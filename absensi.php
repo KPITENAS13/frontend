@@ -41,8 +41,10 @@ if (isset($_POST['submit'])) {
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else {
+            } else if ($_SESSION[kategori] == "mahasiswa") {
                 include './comp/navbar2.php';
+            } else if ($_SESSION[kategori] == "dosen") {
+                include './comp/navbar3.php';
             }
             ?>
         </header><!--/header-->

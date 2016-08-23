@@ -9,14 +9,8 @@ while ($r = mysql_fetch_array($q)) {
         <tr>
             <td>$r[nrp]</td>
             <td>$r[nama]</td>
-            <td>$r[kelas]</td>
-            <td>$r[nilai_harian]</td>
-            <td>$r[uts]</td>
-            <td>$r[uas]</td>
-            <td>$r[project]</td>
-            <td>$r[absen]</td>
+            <td align='center'>$r[kelas]</td>
             <td>$r[total]</td>
-            <td>$r[nilai]</td>
         </tr>";
 }
 ?>

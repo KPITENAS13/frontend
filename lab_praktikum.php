@@ -39,8 +39,10 @@ session_start();
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else {
+            } else if ($_SESSION[kategori] == "mahasiswa") {
                 include './comp/navbar2.php';
+            } else if ($_SESSION[kategori] == "dosen") {
+                include './comp/navbar3.php';
             }
             ?>
         </header><!--/header-->
@@ -136,28 +138,10 @@ session_start();
                                         NRP
                                     </th>
                                     <th>
-                                        Periode
+                                        Nama
                                     </th>
                                     <th>
                                         Kelas
-                                    </th>
-                                    <th>
-                                        Nilai Harian
-                                    </th>
-                                    <th>
-                                        UTS
-                                    </th>
-                                    <th>
-                                        UAS
-                                    </th>
-                                    <th>
-                                        Project
-                                    </th>
-                                    <th>
-                                        Absen
-                                    </th>
-                                    <th>
-                                        Total
                                     </th>
                                     <th>
                                         Nilai
@@ -175,28 +159,10 @@ session_start();
                                         NRP
                                     </th>
                                     <th>
-                                        Periode
+                                        Nama
                                     </th>
                                     <th>
                                         Kelas
-                                    </th>
-                                    <th>
-                                        Nilai Harian
-                                    </th>
-                                    <th>
-                                        UTS
-                                    </th>
-                                    <th>
-                                        UAS
-                                    </th>
-                                    <th>
-                                        Project
-                                    </th>
-                                    <th>
-                                        Absen
-                                    </th>
-                                    <th>
-                                        Total
                                     </th>
                                     <th>
                                         Nilai

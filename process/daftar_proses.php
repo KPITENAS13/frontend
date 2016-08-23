@@ -50,10 +50,10 @@ if ($Lid == 9){     // Untuk Mahasiswa
         echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
-    
+
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
-    } else {
+} else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             include "../koneksi.php";
             mysql_query("INSERT INTO mahasiswa VALUES($id,$pass,'$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
