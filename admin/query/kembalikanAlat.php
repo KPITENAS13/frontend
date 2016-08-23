@@ -16,8 +16,6 @@ status_pinjam='Sudah Dikembalikan',
 kondisi_kembali='$_POST[kondisi]'
 WHERE kode_barang='$_POST[inputKode_barang]'");
 
-echo"$_POST[inputKode_barang]";
-
 $_SESSION['pesan'] = 'Alat Telah Dikembalikan!';
 header("location:../PengembalianAlat.php");
 ?>

@@ -85,8 +85,6 @@ session_start();
                                         <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Request Praktikan</a></li>
                                         <li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Nilai Praktikan</a></li>
                                         <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Nilai Harian</a></li>
-                                        <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Our Philosopy</a></li>
-                                        <li class=""><a href="#tab5" data-toggle="tab" class="tehnical">What We Do?</a></li>
                                     </ul>
                                 </div>
 
@@ -221,14 +219,7 @@ session_start();
                                             <div id="mahasiswa"></div>
                                             <div id="live_data" align="center"><b>Masukkan NRP peserta untuk melihat detail nilai...</b></div>
                                         </div>
-
-                                        <div class="tab-pane" id="tab4">
-                                            <div id="daftar_asisten" align="center"> </div>
-                                        </div>
-
-                                        <div class="tab-pane" id="tab5">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-                                        </div>
+                                        
                                     </div> <!--/.tab-content-->  
                                 </div> <!--/.media-body--> 
                             </div> <!--/.media-->     

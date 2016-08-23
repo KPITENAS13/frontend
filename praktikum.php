@@ -26,21 +26,6 @@ session_start();
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-        <script type="text/javascript">
-            function validasi(formlogin) {
-                var user = document.formlogin.username.value;
-                var pass = document.formlogin.password.value;
-
-                if ((user === "") || (pass === "")) {
-                    $(document).ready(function () {
-                        $("#pesan").html("<b>Warning!</b> Username atau Kata sandi masih kosong!");
-                        $("#pesan").show();
-                    });
-                    return(false);
-                }
-                return(true);
-            }
-        </script>
     </head><!--/head-->
 
     <body class="homepage">
@@ -154,7 +139,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=BASDAT">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services3.png">
+                                    <img class="img-responsive" src="images/services/services7.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">BASDAT</h3>
@@ -168,7 +153,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=PBD">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services2.png">
+                                    <img class="img-responsive" src="images/services/services8.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">PBD</h3>
@@ -182,7 +167,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=PBO">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services1.png">
+                                    <img class="img-responsive" src="images/services/services9.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">PBO</h3>

@@ -57,9 +57,9 @@ session_start();
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else if ($_SESSION[kategori] == "mahasiswa") {
+            } else if ($_SESSION['kategori'] == "mahasiswa") {
                 include './comp/navbar2.php';
-            } else if ($_SESSION[kategori] == "dosen") {
+            } else if ($_SESSION['kategori'] == "dosen") {
                 include './comp/navbar3.php';
             }
             ?>
@@ -384,7 +384,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=BASDAT">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services3.png">
+                                    <img class="img-responsive" src="images/services/services7.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">BASDAT</h3>
@@ -398,7 +398,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=PBD">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services2.png">
+                                    <img class="img-responsive" src="images/services/services8.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">PBD</h3>
@@ -412,7 +412,7 @@ session_start();
                         <a href="lab_praktikum.php?kategori=PBO">
                             <div class="media services-wrap wow fadeInDown">
                                 <div class="pull-left">
-                                    <img class="img-responsive" src="images/services/services1.png">
+                                    <img class="img-responsive" src="images/services/services9.png">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">PBO</h3>
