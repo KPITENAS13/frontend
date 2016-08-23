@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Blog Single | Corlate</title>
+        <title>Registrasi | Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -83,8 +83,14 @@
             <div class="container wow fadeInDown" data-wow-delay="300ms"> 
                 <div class="row contact-wrap"> 
                     <div class="status alert alert-success" style="display: none"></div>
-                    <form class="form-horizontal" name="formreg" method="post" action="process/daftar_proses.php" onsubmit="return validasi(this)">
+                    <form class="form-horizontal" name="formreg" method="post" action="process/daftar_proses.php" onsubmit="return validasi(this)" enctype="multipart/form-data">
                         <div class="col-sm-6 col-sm-offset-3">
+                            <div class="form-group">
+                                <label>Foto *</label><br>
+                                <p>Ukuran Foto Harus Kotak (Mis. 256 X 256 Pixel)</p>
+                                <img src="images/default.jpg" class="img-thumbnail" alt="Responsive Image" style="width: 256px;height: 256px; margin-bottom: 10px">
+                                <input type="file" id="fileToUpload" name="fileToUpload"  required="required">
+                            </div>
                             <div class="form-group">
                                 <label>ID *</label>
                                 <input type="text" name="kode" class="form-control" required="required" maxlength="9" placeholder="Masukkan NID / NRP" autofocus>
@@ -114,18 +120,18 @@
                                 <input type="date" class="form-control" name="tgl" required="required">
                             </div>
                             <div class="form-group">
-                                <label>No. HP</label>
+                                <label>No. HP *</label>
                                 <input type="text" class="form-control" name="telp" required="required" placeholder="Masukkan Nomor HP">
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
+                                <label>Alamat *</label>
                                 <textarea class="form-control" rows="3" name="alamat" required="required" style="height: 150px; max-height: 200px;resize: vertical" placeholder="Masukkan Alamat"></textarea>
                             </div>  
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" name="submit">
                             </div>
                         </div>
-                    </form> 
+                    </form > 
                 </div><!--/.row-->
             </div><!--/.container-->
         </section>  <!--/gmap_area -->
