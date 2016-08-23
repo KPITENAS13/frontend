@@ -39,9 +39,9 @@ session_start();
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else if ($_SESSION[kategori] == "mahasiswa") {
+            } else if ($_SESSION['kategori'] == "mahasiswa") {
                 include './comp/navbar2.php';
-            } else if ($_SESSION[kategori] == "dosen") {
+            } else if ($_SESSION['kategori'] == "dosen") {
                 include './comp/navbar3.php';
             }
             ?>
@@ -52,26 +52,26 @@ session_start();
                 <h2>
                     Laboratorium 
                     <?php
-                    if ($_POST[kategori] == "PEMDAS") {
+                    if ($_POST['kategori'] == "PEMDAS") {
                         echo 'Pemrograman Dasar';
-                    } else if ($_POST[kategori] == "ORKOM") {
+                    } else if ($_POST['kategori'] == "ORKOM") {
                         echo 'Organisasi & Arsitektur Komputer';
-                    } else if ($_POST[kategori] == "PBD") {
+                    } else if ($_POST['kategori'] == "PBD") {
                         echo 'Pemrograman Basis Data';
-                    } else if ($_POST[kategori] == "PRC") {
+                    } else if ($_POST['kategori'] == "PRC") {
                         echo 'Pemrograman Robot Cerdas';
-                    } else if ($_POST[kategori] == "JARKOM") {
+                    } else if ($_POST['kategori'] == "JARKOM") {
                         echo 'Jaringan Komputer';
-                    } else if ($_POST[kategori] == "REKWEB") {
+                    } else if ($_POST['kategori'] == "REKWEB") {
                         echo 'Rekayasa Web';
-                    } else if ($_POST[kategori] == "JST") {
+                    } else if ($_POST['kategori'] == "JST") {
                         echo 'Jaringan Syaraf Tiruan';
-                    } else if ($_POST[kategori] == "BASDAT") {
+                    } else if ($_POST['kategori'] == "BASDAT") {
                         echo 'Basis Data';
-                    } else if ($_POST[kategori] == "PBO") {
+                    } else if ($_POST['kategori'] == "PBO") {
                         echo 'Pemrograman Berorientasi Objek';
                     }
-                    echo ' Periode ' . $_POST[periode];
+                    echo ' Periode ' . $_POST['periode'];
                     ?>
                 </h2>
                 <p class="lead">
@@ -174,72 +174,6 @@ session_start();
                 </div>
             </div>
         </section>  <!--/gmap_area -->
-
-        <section id="bottom">
-            <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Company</h3>
-                            <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">We are hiring</a></li>
-                                <li><a href="#">Meet the team</a></li>
-                                <li><a href="#">Copyright</a></li>
-                                <li><a href="#">Terms of use</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Contact us</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Support</h3>
-                            <ul>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Forum</a></li>
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Refund policy</a></li>
-                                <li><a href="#">Ticket system</a></li>
-                                <li><a href="#">Billing system</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Developers</h3>
-                            <ul>
-                                <li><a href="#">Web Development</a></li>
-                                <li><a href="#">SEO Marketing</a></li>
-                                <li><a href="#">Theme</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Email Marketing</a></li>
-                                <li><a href="#">Plugin Development</a></li>
-                                <li><a href="#">Article Writing</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Our Partners</h3>
-                            <ul>
-                                <li><a href="#">Adipisicing Elit</a></li>
-                                <li><a href="#">Eiusmod</a></li>
-                                <li><a href="#">Tempor</a></li>
-                                <li><a href="#">Veniam</a></li>
-                                <li><a href="#">Exercitation</a></li>
-                                <li><a href="#">Ullamco</a></li>
-                                <li><a href="#">Laboris</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-                </div>
-            </div>
-        </section><!--/#bottom-->
 
         <footer id="footer" class="midnight-blue">
             <?php include './comp/footer.php'; ?>
