@@ -52,26 +52,26 @@ session_start();
                 <h2>
                     Laboratorium 
                     <?php
-                    if ($_POST['kategori'] == "PEMDAS") {
+                    if ($_GET['kategori'] == "PEMDAS") {
                         echo 'Pemrograman Dasar';
-                    } else if ($_POST['kategori'] == "ORKOM") {
+                    } else if ($_GET['kategori'] == "ORKOM") {
                         echo 'Organisasi & Arsitektur Komputer';
-                    } else if ($_POST['kategori'] == "PBD") {
+                    } else if ($_GET['kategori'] == "PBD") {
                         echo 'Pemrograman Basis Data';
-                    } else if ($_POST['kategori'] == "PRC") {
+                    } else if ($_GET['kategori'] == "PRC") {
                         echo 'Pemrograman Robot Cerdas';
-                    } else if ($_POST['kategori'] == "JARKOM") {
+                    } else if ($_GET['kategori'] == "JARKOM") {
                         echo 'Jaringan Komputer';
-                    } else if ($_POST['kategori'] == "REKWEB") {
+                    } else if ($_GET['kategori'] == "REKWEB") {
                         echo 'Rekayasa Web';
-                    } else if ($_POST['kategori'] == "JST") {
+                    } else if ($_GET['kategori'] == "JST") {
                         echo 'Jaringan Syaraf Tiruan';
-                    } else if ($_POST['kategori'] == "BASDAT") {
+                    } else if ($_GET['kategori'] == "BASDAT") {
                         echo 'Basis Data';
-                    } else if ($_POST['kategori'] == "PBO") {
+                    } else if ($_GET['kategori'] == "PBO") {
                         echo 'Pemrograman Berorientasi Objek';
                     }
-                    echo ' Periode ' . $_POST['periode'];
+                    echo ' Periode ' . $_GET['periode'];
                     ?>
                 </h2>
                 <p class="lead">
@@ -103,9 +103,6 @@ session_start();
             <div class="container">
                 <div class="row contact-wrap">
                     <div class="col-md-12 wow fadeInDown" data-wow-delay="300ms" align="center">
-                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#PeriodeModal" id="tombol" style="display: none;" data-backdrop="static" data-keyboard="false">
-                            Hiden Button
-                        </button>
                         <?php
                         include './koneksi.php';
                         $query = "select approve from praktikum WHERE prak='$_POST[kategori]' AND periode='$_POST[periode]' AND nrp=$_SESSION[kode]";
@@ -191,11 +188,20 @@ session_start();
         <script>
             $(document).ready(function () {
                 $('#tabel1').DataTable();
-                var periode = '<?php echo $_POST[periode]; ?>';
-                if (periode == "") {
-                    $('#tombol').click();
-                }
             });
+
+            function ValidateExtension() {
+                var allowedFiles = [".doc", ".docx", ".pdf"];
+                var fileUpload = document.getElementById("fileToUpload");
+                var lblError = document.getElementById("lblError");
+                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+                if (!regex.test(fileUpload.value.toLowerCase())) {
+                    lblError.innerHTML = "Please upload files having extensions: <b>" + allowedFiles.join(', ') + "</b> only.";
+                    return false;
+                }
+                lblError.innerHTML = "";
+                return true;
+            }
         </script>
     </body>
 </html
@@ -232,47 +238,22 @@ session_start();
 </div><!-- /.modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="PeriodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form name="formlogin" method="post" action="lab_praktikum.php" onsubmit="return validasi(this)">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Pilih periode praktikum terlebih dahulu</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="control-label" for="basicinput">Periode</label>
-                        <div class="controls">
-                            <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
-                                <option value="">Select here..</option>
-                                <option value="2015/2016">2015/2016</option>
-                                <option value="2016/2017">2016/2017</option>
-                                <option value="2017/2018">2017/2018</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" name="kategori" value="<?php echo $_GET[kategori]; ?>">
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Proses</button>
-                </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<!-- Modal -->
 <div class="modal fade" id="AslabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="alert alert-warning alert-dismissable">
-            <form name="formlogin" method="post" action="process/daftar_aslab_proses.php" onsubmit="return validasi(this)">
-                <h4>Verifikasi Pendaftaran Asisten Laboratorium</h4>
-                <p align="center"><br>Apakah anda yakin ingin mendaftarkan diri sebagai Asisten Labortorium ?<br></p>
+            <form name="formlogin" method="post" action="process/daftar_aslab_proses.php" enctype="multipart/form-data">
+                <h4 align="center">Verifikasi Pendaftaran Asisten Laboratorium</h4>
+                <p><br>Persyaratan yang harus dipenuhi untuk mendaftar sebagai asisten laboratorium adalah sebagai berikut :<br></p>
+                <?php
+                include './comp/persyaratan.php';
+                ?>
+                <br><input type="file" id="fileToUpload" name="fileToUpload">
                 <p align="center">
                     <br>
-                    <input type="hidden" name="periode" value="<?php echo $_POST[periode]; ?>">
-                    <input type="hidden" name="kategori" value="<?php echo $_POST[kategori]; ?>">
-                    <button type="submit" class="btn btn-success" style="width: 30%;">Proses</button>
+                    <span id="lblError" style="color: red;"></span>
+                    <input type="hidden" name="periode" value="<?php echo $_GET[periode]; ?>">
+                    <input type="hidden" name="kategori" value="<?php echo $_GET[kategori]; ?>">
+                    <button type="submit" name="submit" onclick="return ValidateExtension()" class="btn btn-success" style="width: 30%;">Proses</button>
                     <button type="button" data-dismiss="modal" class="btn btn-danger" aria-hidden="true" style="width: 30%;">Batal</button>
                 </p>
             </form>

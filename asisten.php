@@ -50,23 +50,23 @@ session_start();
                 <h2>
                     Asisten Laboratorium 
                     <?php
-                    if ($_GET[kategori] == "PEMDAS") {
+                    if ($_GET['kategori'] == "PEMDAS") {
                         echo 'Pemrograman Dasar';
-                    } else if ($_GET[kategori] == "ORKOM") {
+                    } else if ($_GET['kategori'] == "ORKOM") {
                         echo 'Organisasi & Arsitektur Komputer';
-                    } else if ($_GET[kategori] == "PBD") {
+                    } else if ($_GET['kategori'] == "PBD") {
                         echo 'Pemrograman Basis Data';
-                    } else if ($_GET[kategori] == "PRC") {
+                    } else if ($_GET['kategori'] == "PRC") {
                         echo 'Pemrograman Robot Cerdas';
-                    } else if ($_GET[kategori] == "JARKOM") {
+                    } else if ($_GET['kategori'] == "JARKOM") {
                         echo 'Jaringan Komputer';
-                    } else if ($_GET[kategori] == "REKWEB") {
+                    } else if ($_GET['kategori'] == "REKWEB") {
                         echo 'Rekayasa Web';
-                    } else if ($_GET[kategori] == "JST") {
+                    } else if ($_GET['kategori'] == "JST") {
                         echo 'Jaringan Syaraf Tiruan';
-                    } else if ($_GET[kategori] == "BASDAT") {
+                    } else if ($_GET['kategori'] == "BASDAT") {
                         echo 'Basis Data';
-                    } else if ($_GET[kategori] == "PBO") {
+                    } else if ($_GET['kategori'] == "PBO") {
                         echo 'Pemrograman Berorientasi Objek';
                     }
                     ?>
