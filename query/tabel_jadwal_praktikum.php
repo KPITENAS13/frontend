@@ -13,7 +13,7 @@ while ($r = mysql_fetch_array($q)) {
             <td>$r[asisten] 
                 <a href='#' title='Selengkapnya' data-html='true' data-toggle='popover' data-placement='top' data-content='";
     while ($r2 = mysql_fetch_array($q2)){
-        echo " - " . $r2[nama] . " <br />";
+        echo " - " . $r2['nama'] . " <br />";
     }
     echo "'>
                     <span class='glyphicon glyphicon-info-sign'></span>

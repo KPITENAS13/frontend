@@ -1,7 +1,11 @@
 <?php
 
 include 'koneksi.php';
-$query = "SELECT * FROM koordinator,dosen WHERE praktikum='$_POST[kategori]' AND periode='$_POST[periode]' AND jabatan='Koor Laboratorium' AND koordinator.kode=dosen.nid";
+if(isset($_POST['kategori'])){
+    $kategori = $_POST['kategori'];
+    $periode = $_POST['periode'];
+}
+$query = "SELECT * FROM koordinator,dosen WHERE praktikum='$kategori' AND periode='$periode' AND jabatan='Koor Laboratorium' AND koordinator.kode=dosen.nid";
 $hasil = mysql_query($query);
 $row = mysql_fetch_array($hasil);
 if (empty($row)) {

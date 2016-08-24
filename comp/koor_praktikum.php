@@ -1,7 +1,11 @@
 <?php
 
 include 'koneksi.php';
-$query = "SELECT * FROM koordinator,dosen WHERE praktikum='$_POST[kategori]' AND periode='$_POST[periode]' AND jabatan='Koor Praktikum' AND koordinator.kode=dosen.nid";
+if(isset($_POST['kategori'])){
+    $kategori = $_POST['kategori'];
+    $periode = $_POST['periode'];
+}
+$query = "SELECT * FROM koordinator,dosen WHERE praktikum='$kategori' AND periode='$periode' AND jabatan='Koor Praktikum' AND koordinator.kode=dosen.nid";
 $hasil = mysql_query($query);
 $row = mysql_fetch_array($hasil);
 if (empty($row)) {
@@ -17,7 +21,7 @@ if (empty($row)) {
         <img src='$row[foto]' class='img-circle' alt=''>
         <h3>Koordinator Praktikum</h3>
         <h4><span>$row[nama]</span></h4>";
-    if($row["nid"]==$_SESSION[kode]){
+    if($row["nid"]==$_SESSION['kode']){
         echo"
             <h4><a class='btn btn-primary' href='koordinator.php?kategori=$_POST[kategori]&&periode=$_POST[periode]'>Halaman Koordinator Praktikum</a></h4>
         </div>";

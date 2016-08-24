@@ -1,7 +1,7 @@
 <?php
 include './koneksi.php';
-$prak = $_GET[kategori];
-$peri= $_GET[periode];
+$prak = $_GET['kategori'];
+$peri= $_GET['periode'];
 
 $q = mysql_query("SELECT * FROM praktikum,mahasiswa where prak='$prak' AND periode='$peri' AND approve='Y' AND praktikum.nrp=mahasiswa.id");
 while ($r = mysql_fetch_array($q)) {
@@ -16,7 +16,6 @@ while ($r = mysql_fetch_array($q)) {
             <td>$r[project]</td>
             <td>$r[absen]</td>
             <td>$r[total]</td>
-            <td>$r[nilai]</td>
         </tr>";
 }
 ?>

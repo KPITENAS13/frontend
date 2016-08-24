@@ -1,9 +1,11 @@
 <?php
 include 'koneksi.php';
-$kategori = $_GET[kategori];
+if (isset($_GET['kategori'])) {
+   $kategori= $_GET["kategori"];
+}
 $q = mysql_query("SELECT * FROM file WHERE kategori IN ('Modul','Jobsheet')");
 while ($r = mysql_fetch_array($q)) {
-    $file = substr($r[path], 3);
+    $file = substr($r['path'], 3);
     $file = "admin/" . $file;
     echo "
         <tr>

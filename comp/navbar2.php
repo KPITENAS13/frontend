@@ -40,7 +40,7 @@ $ro = mysql_fetch_array($ha);
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION[username]; ?> <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?> <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <?php
                         if (!empty($ro)) {
@@ -67,10 +67,13 @@ $ro = mysql_fetch_array($ha);
             <div align="center">
                 <div class="btn-group-vertical" style="width: 50%;">
                     <?php
-                    $query = "SELECT * FROM asisten WHERE approve='Y' AND nrp=$_SESSION[kode]";
+                    $kode = $_SESSION['kode'];
+                    $query = "SELECT * FROM asisten WHERE approve='Y' AND nrp=$kode";
                     $hasil = mysql_query($query);
                     while ($row = mysql_fetch_array($hasil)) {
-                        echo "<a href='asisten.php?kategori=$row[praktikum]&&periode=$row[periode]' class='btn btn-default'>" . $row[praktikum] . " " . $row[periode] . "</a>";
+                        $praktikum = $row['praktikum'];
+                        $periode= $row['periode'];
+                        echo "<a href='asisten.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $praktikum . " " . $periode . "</a>";
                     }
                     ?>
                 </div>

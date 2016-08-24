@@ -156,9 +156,6 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
@@ -195,9 +192,6 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
@@ -210,8 +204,8 @@ session_start();
                                             <form class="form-inline" role="form" align="center">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php echo $_GET[periode] ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET[kategori] ?>">
+                                                    <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
+                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
                                                 </div>
                                                 <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
                                             </form>

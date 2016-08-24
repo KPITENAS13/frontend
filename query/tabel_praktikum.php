@@ -1,9 +1,12 @@
 <?php
-include './koneksi.php';
-$prak = $_POST[kategori];
-$peri= $_POST[periode];
 
-$q = mysql_query("SELECT * FROM praktikum,mahasiswa where prak='$prak' AND periode='$peri' AND approve='Y' AND praktikum.nrp=mahasiswa.id");
+include './koneksi.php';
+
+$praktikum = $_GET['kategori'];
+$periode = $_GET['periode'];
+
+
+$q = mysql_query("SELECT * FROM praktikum,mahasiswa where prak='$praktikum' AND periode='$periode' AND approve='Y' AND praktikum.nrp=mahasiswa.id");
 while ($r = mysql_fetch_array($q)) {
     echo "
         <tr>

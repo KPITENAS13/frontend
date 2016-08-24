@@ -1,7 +1,11 @@
 <?php
 include 'koneksi.php';
-$ha = mysql_query("SELECT * FROM koordinator WHERE kode=$_SESSION[kode]");
-$ro = mysql_fetch_array($ha);
+$nrp = '';
+$nrp = $_SESSION['kode'];
+$h1 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' AND kode=$nrp");
+$r1 = mysql_fetch_array($h1);
+$h2 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Praktikum' AND kode=$nrp");
+$r2 = mysql_fetch_array($h2);
 ?>
 <!-- Navbar User (Dosen)-->
 <nav class="navbar navbar-inverse" role="banner">
@@ -40,11 +44,16 @@ $ro = mysql_fetch_array($ha);
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION[username]; ?> <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?> <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <?php
-                        if (!empty($ro)) {
-                            echo "<li><a href='#' data-toggle='modal' data-target='#KoorModal'>Koordinator Praktikum</a></li>";
+                        if (!empty($r1)) {
+                            echo "<li><a href='#' data-toggle='modal' data-target='#KoorLabModal'>Koordinator Laboratorium</a></li>";
+                        }
+                        ?>
+                        <?php
+                        if (!empty($r2)) {
+                            echo "<li><a href='#' data-toggle='modal' data-target='#KoorPrakModal'>Koordinator Praktikum</a></li>";
                         }
                         ?>
                         <li><a href="#">Profil</a></li>
@@ -58,7 +67,31 @@ $ro = mysql_fetch_array($ha);
 </nav><!--/nav-->
 
 <!-- Modal -->
-<div class="modal fade" id="KoorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="KoorLabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="alert alert-warning alert-dismissable">
+            <h4 align="center">Verifikasi Halaman Koordinator Laboratorium</h4>
+            <p align="center"><br>Laboratorium mana yang ingin anda akses ?<br></p>
+            <br>
+            <div align="center">
+                <div class="btn-group-vertical" style="width: 50%;">
+                    <?php
+                    $query = "SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' AND kode=$_SESSION[kode]";
+                    $hasil = mysql_query($query);
+                    while ($row = mysql_fetch_array($hasil)) {
+                        $praktikum = $row['praktikum'];
+                        $periode = $row['periode'];
+                        echo "<a href='koordinator_lab.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $row['praktikum'] . " " . $row['periode'] . "</a>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="KoorPrakModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="alert alert-warning alert-dismissable">
             <h4 align="center">Verifikasi Halaman Koordinator Praktikum</h4>
@@ -67,10 +100,12 @@ $ro = mysql_fetch_array($ha);
             <div align="center">
                 <div class="btn-group-vertical" style="width: 50%;">
                     <?php
-                    $query = "SELECT * FROM koordinator WHERE kode=$_SESSION[kode]";
+                    $query = "SELECT * FROM koordinator WHERE jabatan='Koor Praktikum' AND kode=$_SESSION[kode]";
                     $hasil = mysql_query($query);
                     while ($row = mysql_fetch_array($hasil)) {
-                        echo "<a href='asisten.php?kategori=$row[praktikum]&&periode=$row[periode]' class='btn btn-default'>" . $row[praktikum] . " " . $row[periode] . "</a>";
+                        $praktikum = $row['praktikum'];
+                        $periode = $row['periode'];
+                        echo "<a href='koordinator.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $row['praktikum'] . " " . $row['periode'] . "</a>";
                     }
                     ?>
                 </div>

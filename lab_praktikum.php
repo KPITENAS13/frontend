@@ -105,7 +105,13 @@ session_start();
                     <div class="col-md-12 wow fadeInDown" data-wow-delay="300ms" align="center">
                         <?php
                         include './koneksi.php';
-                        $query = "select approve from praktikum WHERE prak='$_POST[kategori]' AND periode='$_POST[periode]' AND nrp=$_SESSION[kode]";
+                        $nrp = '';
+                        if(isset($_GET['kategori'])){
+                            $kategori = $_GET['kategori'];
+                            $periode = $_GET['periode'];
+                            $nrp = $_SESSION['kode'];
+                        }
+                        $query = "select approve from praktikum WHERE prak='$kategori' AND periode='$periode' AND nrp=$nrp";
                         $hasil = mysql_query($query);
                         $row = mysql_fetch_array($hasil);
                         if ($row['approve'] == "") {
