@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/labif/query/asistenreq_select.php</file>
             <file>file:/C:/xampp/htdocs/labif/lab_praktikum.php</file>
-            <file>file:/C:/xampp/htdocs/labif/comp/koor_praktikum.php</file>
-            <file>file:/C:/xampp/htdocs/labif/comp/koor_kelas.php</file>
-            <file>file:/C:/xampp/htdocs/labif/comp/navbar2.php</file>
-            <file>file:/C:/xampp/htdocs/labif/comp/navbar3.php</file>
+            <file>file:/C:/xampp/htdocs/labif/koordinator.php</file>
+            <file>file:/C:/xampp/htdocs/labif/asisten.php</file>
         </group>
     </open-files>
 </project-private>

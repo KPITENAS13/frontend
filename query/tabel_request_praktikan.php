@@ -1,6 +1,8 @@
 <?php
 include 'koneksi.php';
-$q = mysql_query("select nrp, nama from mahasiswa,praktikum where mahasiswa.id=praktikum.nrp and praktikum.approve='R' and prak='$_GET[kategori]' and periode='$_GET[periode]'");
+$kategori = $_GET['kategori'];
+$periode = $_GET['periode'];
+$q = mysql_query("select nrp, nama from mahasiswa,praktikum where mahasiswa.id=praktikum.nrp and praktikum.approve='R' and prak='$kategori' and periode='$periode'");
 while ($r = mysql_fetch_array($q)) {
     echo "
         <tr>

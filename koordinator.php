@@ -9,7 +9,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Koordinator | Lab IF</title>
+        <title>Koor. Praktikum| Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@ session_start();
         <section id="feature">
             <div class="center wow fadeInDown">
                 <h2>
-                    Koordinator Laboratorium 
+                    Koordinator Praktikum <br>
                     <?php
                     if ($_GET['kategori'] == "PEMDAS") {
                         echo 'Pemrograman Dasar';
@@ -69,6 +69,7 @@ session_start();
                     } else if ($_GET['kategori'] == "PBO") {
                         echo 'Pemrograman Berorientasi Objek';
                     }
+                    echo ' Periode ' . $_GET['periode'];
                     ?>
                 </h2>
                 <p class="lead">
@@ -127,9 +128,6 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
@@ -166,9 +164,6 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
@@ -181,8 +176,8 @@ session_start();
                                             <form class="form-inline" role="form" align="center">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php echo $_GET[periode] ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET[kategori] ?>">
+                                                    <input type="hidden" id="periode" value="<?php if(isset($_GET['periode'])){echo $_GET['periode'];} ?>">
+                                                    <input type="hidden" id="praktikum" value="<?php if(isset($_GET['kategori'])){echo $_GET['kategori'];} ?>">
                                                 </div>
                                                 <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
                                             </form>
@@ -222,6 +217,13 @@ session_start();
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
         <script>
+            $(document).ready(function () {
+                $('#tabel1').DataTable();
+                $('#tabel2').DataTable();
+                asisten_data();
+                asisten_req();
+                koor_data();
+            });
             function asisten_data() {
                 var periode = document.getElementById("periode").value;
                 var praktikum = document.getElementById("praktikum").value;
@@ -264,13 +266,7 @@ session_start();
                 });
             }
 
-            $(document).ready(function () {
-                $('#tabel1').DataTable();
-                $('#tabel2').DataTable();
-                asisten_data();
-                asisten_req();
-                koor_data();
-            });
+            
 
             function showNilai(nrp) {
                 if (nrp == "") {

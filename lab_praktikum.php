@@ -126,7 +126,7 @@ session_start();
                             </button>';
                         } else if ($row['approve'] == "Y") {
                             echo "
-                            <a href='user_peminjaman_praktikum.php?praktikum=$_POST[kategori]' class='btn btn-primary btn-lg' >
+                            <a href='user_peminjaman_praktikum.php?praktikum=$kategori' class='btn btn-primary btn-lg' >
                                 Peminjaman Peralatan Praktikum
                             </a>";
                         }
@@ -227,14 +227,15 @@ session_start();
                         <div class="controls">
                             <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
                                 <option value="">Select here..</option>
-                                <option value="2015/2016">2015/2016</option>
                                 <option value="2016/2017">2016/2017</option>
                                 <option value="2017/2018">2017/2018</option>
+                                <option value="2018/2019">2017/2018</option>
+                                <option value="2019/2020">2017/2018</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="kategori" value="<?php echo $_POST[kategori]; ?>">
+                <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Daftar</button>
                 </div>
@@ -257,8 +258,8 @@ session_start();
                 <p align="center">
                     <br>
                     <span id="lblError" style="color: red;"></span>
-                    <input type="hidden" name="periode" value="<?php echo $_GET[periode]; ?>">
-                    <input type="hidden" name="kategori" value="<?php echo $_GET[kategori]; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
                     <button type="submit" name="submit" onclick="return ValidateExtension()" class="btn btn-success" style="width: 30%;">Proses</button>
                     <button type="button" data-dismiss="modal" class="btn btn-danger" aria-hidden="true" style="width: 30%;">Batal</button>
                 </p>
