@@ -27,14 +27,14 @@ session_start();
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
         <script type="text/javascript">
-            function validasi(formlogin) {
-                var user = document.formlogin.username.value;
-                var pass = document.formlogin.password.value;
+            function validasi_login(formlogin) {
+                var user = document.formlogin.username2.value;
+                var pass = document.formlogin.password2.value;
 
                 if ((user === "") || (pass === "")) {
                     $(document).ready(function () {
-                        $("#pesan").html("<b>Warning!</b> Username atau Kata sandi masih kosong!");
-                        $("#pesan").show();
+                        alert('ID atau Kata Sandi masih kosong !');
+                        formlogin.username2.focus();
                     });
                     return(false);
                 }

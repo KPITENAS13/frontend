@@ -46,7 +46,7 @@
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form name="formlogin" method="post" action="process/login_proses.php" >
+            <form name="formlogin" method="post" action="process/login_proses.php" onsubmit="return validasi_login(this)">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Login</h4>
@@ -56,13 +56,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <span class="input-group-addon">Username</span>
-                        <input type="text" class="form-control" placeholder="Masukkan NRP / NID" name="username2">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" class="form-control" maxlength="9" placeholder="Masukkan NRP / NID" name="username2">
                     </div>
                     <br>
                     <div class="input-group">
-                        <span class="input-group-addon">Kata Sandi</span>
-                        <input type="password" class="form-control" placeholder="" name="password2">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="password" class="form-control" maxlength="6" placeholder="Masukkan Kata Sandi" name="password2">
                     </div>
                 </div>
                 <div class="modal-footer">
