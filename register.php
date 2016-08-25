@@ -14,6 +14,11 @@
         <link href="css/animate.min.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        
+        <!-- core JS POPOVER -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -52,13 +57,13 @@
                 var cek = document.getElementById('statusPassword');
 
                 if (Cpass !== pass) {
-                    cek.className = 'icon-remove';
+                    cek.className = 'glyphicon glyphicon-remove';
                 } else {
-                    cek.className = 'icon-ok';
+                    cek.className = 'glyphicon glyphicon-ok';
                 }
 
                 if (pass === "" || Cpass === "") {
-                    cek.className = '';
+                    cek.className = 'glyphicon glyphicon-lock';
                 }
             }
         </script>
@@ -78,7 +83,7 @@
         <section id="contact-info">
             <div class="center wow fadeInDown">                
                 <h2>Registrasi</h2>
-                <p class="lead">Untuk dapat mengakses fitur yang lebih lengkap silakan regstrasi terlebih dahulu</p>
+                <p class="lead">Untuk dapat mengakses fitur yang lebih lengkap silakan registrasi terlebih dahulu ...</p>
             </div>
             <div class="container wow fadeInDown" data-wow-delay="300ms"> 
                 <div class="row contact-wrap"> 
@@ -87,21 +92,42 @@
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="form-group">
                                 <label>Foto *</label><br>
-                                <p>Ukuran Foto Harus Kotak (Mis. 256 X 256 Pixel)</p>
+                                <p>Ukuran Pas Foto Harus Kotak (Mis. 256 X 256 Pixel)</p>
                                 <img src="images/default.jpg" class="img-thumbnail" alt="Responsive Image" style="width: 256px;height: 256px; margin-bottom: 10px">
                                 <input type="file" id="fileToUpload" name="fileToUpload"  required="required">
                             </div>
                             <div class="form-group">
                                 <label>ID *</label>
-                                <input type="text" name="kode" class="form-control" required="required" maxlength="9" placeholder="Masukkan NID / NRP" autofocus>
+                                <div class="input-group">
+                                    <input type="text" name="kode" class="form-control" required="required" maxlength="9" placeholder="Masukkan NID / NRP" autofocus>
+                                    <span class="input-group-addon" data-toggle="popover" tabindex="1" data-trigger="hover" title="Informasi" data-content=" 
+                                        &bull;&nbsp;Panjang maksimal 9 digit.
+                                        &bull;&nbsp;NID (Dosen) : 4 digit. &nbsp;&nbsp;&nbsp;&nbsp;
+                                        &bull;&nbsp;NRP (Mahasiswa) : 9 digit." >
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Kata Sandi *</label>
-                                <input type="password" name="sandi" class="form-control" required="required" maxlength="6" placeholder="Masukkan Kata Sandi">
+                                <div class="input-group">
+                                    <input type="password" name="sandi" class="form-control" required="required" maxlength="6" placeholder="Masukkan Kata Sandi">
+                                    <span class="input-group-addon" data-toggle="popover" tabindex="2" data-trigger="hover" title="Informasi" data-content="
+                                        &bull;&nbsp;Panjang harus 6 digit.
+                                        &bull;&nbsp;Nomor PIN (Mahasiswa).
+                                        &bull;&nbsp;Acak (Dosen).">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Konfirmasi Kata Sandi *</label>
-                                <input type="password" name="konfirmasi" class="form-control" required="required" maxlength="6" placeholder="Masukkan Kembali Kata Sandi">
+                                <div class="input-group">
+                                    <input type="password" name="konfirmasi" class="form-control" required="required" maxlength="6" placeholder="Masukkan Kembali Kata Sandi" onkeyup="ConfirmPassword()">
+                                    <span class="input-group-addon">
+                                        <span id="statusPassword" class="glyphicon glyphicon-lock"></span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Nama Lengkap *</label>
@@ -109,7 +135,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Jenis Kelamin *</label>
-                                <select name="jk" class="form-control" required>
+                                <select name="jk" class="form-control" required="required">
                                     <option value="">- Pilih -</option>
                                     <option value="L">Laki - laki</option>
                                     <option value="P">Perempuan</option>
@@ -127,11 +153,11 @@
                                 <label>Alamat *</label>
                                 <textarea class="form-control" rows="3" name="alamat" required="required" style="height: 150px; max-height: 200px;resize: vertical" placeholder="Masukkan Alamat"></textarea>
                             </div>  
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-primary" name="submit">
+                            <div class="form-group" align="right">
+                                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                             </div>
                         </div>
-                    </form > 
+                    </form> 
                 </div><!--/.row-->
             </div><!--/.container-->
         </section>  <!--/gmap_area -->
@@ -140,9 +166,7 @@
             <?php include './comp/footer.php'; ?>
         </footer><!--/#footer-->
 
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery-1.8.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/jquery.isotope.min.js"></script>
         <script src="js/main.js"></script>

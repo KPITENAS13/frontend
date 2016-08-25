@@ -104,7 +104,7 @@ $_SESSION['pesan'] = '';
         </li>
         <li>
             <a href="printqrcode.php">
-                <i class="menu-icon icon-barcode"></i>
+                <i class="menu-icon icon-qrcode"></i>
                 Print QR Code
             </a>
         </li>

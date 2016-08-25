@@ -73,7 +73,6 @@ session_start();
                                                 <th>Lokasi</th>
                                                 <th>Type</th>
                                                 <th>Model</th>
-                                                <th>Last Update</th>
                                                 <th>No. Pelabelan</th>
                                                 <th>------</th>
                                             </tr>
@@ -92,7 +91,6 @@ session_start();
                                                         <td align=center>$r[lokasi]</td>
                                                         <td align=center>$r[type]</td>
                                                         <td align=center>$r[model]</td>
-                                                        <td align=center>$r[last_update]</td>
                                                         <td align=center>$r[no_pelabelan]</td>
                                                         <td align=center>
                                                             <a href='gen-qrcode.php?serial=$r[serial_num]'><button class='btn btn-warning pull-right'>Generate</button></a>
@@ -110,7 +108,6 @@ session_start();
                                                 <th>Lokasi</th>
                                                 <th>Type</th>
                                                 <th>Model</th>
-                                                <th>Last Update</th>
                                                 <th>No. Pelabelan</th>
                                                 <th>------</th>
                                             </tr>
