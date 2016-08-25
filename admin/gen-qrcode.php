@@ -85,25 +85,24 @@ function printDiv(elementId) {
                                         include "koneksi/koneksi.php";
 
                                         $seri = $_GET['serial'];
-                                        $tampil = mysql_query("select * from barang WHERE serial_num = ".$seri."");
+                                        $tampil = mysql_query("select * from barang WHERE serial_num = '".$seri."'");
                                         echo"<center>
                                              <div id='area-1'>
-                                             <img src='http://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=".$seri."&chld=H|0'>
+                                             <img src='http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=".$seri."&chld=H|0'>
                                              </div>
                                              <br>
                                              Nomor Serial : ".$seri." </center>
                                              <br>";
 
-                                             while ($r = mysql_fetch_array($tampil)) {
-                                                        echo"
-                                                        <tr><th style='width:50%'>Nama</th><td align=center>$r[nama]</td></tr>
-                                                        <tr><th>Status</th><td align=center>$r[status]</td></tr>
-                                                        <tr><th>Developer</th><td align=center>$r[developer]</td></tr>
-                                                        <tr><th>Lokasi</th><td align=center>$r[lokasi]</td></tr>
-                                                        <tr><th>Type</th><td align=center>$r[type]</td></tr>
-                                                        <tr><th>Model</th><td align=center>$r[model]</td></tr>
-                                                        <tr><th>No. Pelabelan</th><td align=center>$r[no_pelabelan]</td></tr>
-                                                        ";
+                                             while ($r = mysql_fetch_array($tampil)) {?>
+                                                        <tr><th style='width:50%'>Nama</th><td align=center><?php echo $r['nama'] ?></td></tr>
+                                                        <tr><th>Status</th><td align=center><?php echo $r['status'] ?></td></tr>
+                                                        <tr><th>Developer</th><td align=center><?php echo $r['developer'] ?></td></tr>
+                                                        <tr><th>Lokasi</th><td align=center><?php echo $r['lokasi'] ?></td></tr>
+                                                        <tr><th>Type</th><td align=center><?php echo $r['type'] ?></td></tr>
+                                                        <tr><th>Model</th><td align=center><?php echo $r['model'] ?></td></tr>
+                                                        <tr><th>No. Pelabelan</th><td align=center><?php echo $r['no_pelabelan'] ?></td></tr>
+                                        <?php                
                                             }
                                         ?>
                                     </table>

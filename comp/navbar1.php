@@ -34,7 +34,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akun <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" data-toggle="modal" data-target="#LoginModal">Login</a></li>
-                        <li><a href="register.php">Regsiter</a></li>
+                        <li><a href="register.php">Registrasi</a></li>
                     </ul>
                 </li>                
             </ul>

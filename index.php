@@ -173,7 +173,7 @@ session_start();
                             <div class="feature-wrap">
                                 <i class="fa fa-cloud-download"></i>
                                 <h2>Arsip & Dokumentasi</h2>
-                                <h3>Download file yang berkaitan dengan lab. dan praktikum</h3>
+                                <h3>Download file yang berkaitan dengan laboratorium dan praktikum</h3>
                             </div>
                         </div><!--/.col-md-4-->
 
@@ -189,14 +189,14 @@ session_start();
                             <div class="feature-wrap">
                                 <i class="fa fa-cogs"></i>
                                 <h2>Peminjaman Alat</h2>
-                                <h3>Melakukan request peminjaman peralatan lab.</h3>
+                                <h3>Melakukan request peminjaman peralatan laboratorium</h3>
                             </div>
                         </div><!--/.col-md-4-->
 
                         <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                             <div class="feature-wrap">
                                 <i class="fa fa-heart"></i>
-                                <h2>Dan Lain-lai</h2>
+                                <h2>Dan Lain-lain</h2>
                                 <h3>Masih ada fitur lain yang dapat diakses</h3>
                             </div>
                         </div><!--/.col-md-4-->
