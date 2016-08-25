@@ -1,9 +1,16 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "inventaris");
-$sql = "INSERT INTO nilai_harian "
-        . "(pertemuan, nrp, praktikum, periode, tp, th, ta) VALUES"
-        . "(" . $_POST["pertemuan"] . "," . $_POST["nrp"] . ",'" . $_POST["praktikum"] . "','" . $_POST["periode"] . "'," . $_POST["tp"] . "," . $_POST["th"] . "," . $_POST["ta"] . ")";
+$praktikum = $_POST['praktikum'];
+$periode = $_POST['periode'];
+$nh = $_POST['nh'];
+$abs = $_POST['abs'];
+$uts = $_POST['uts'];
+$uas = $_POST['uas'];
+$pro = $_POST['pro'];
+$sql = "INSERT INTO presentase_nilai "
+        . "(praktikum, periode, nilai_harian, uts, uas, project, absensi) VALUES"
+        . "('" . $praktikum . "','" . $periode . "'," . $nh . "," . $uts . "," . $uas . "," . $pro . "," . $abs . ")";
 if (mysqli_query($connect, $sql)) {
-    echo 'Data Inserted';
+    echo 'Presentase Nilai Berhasil Ditentukan';
 }
 ?>  

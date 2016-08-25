@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
         $output .= '<tr>'
                 . ' <td class="nrp_req" data-id1="' . $row["id"] . '" >' . $row["nrp"] . '</td>'
                 . ' <td class="nama" data-id2="' . $row["id"] . '" >' . $row["nama"] . '</td>'
-                . ' <td align="center" class="lampiran" data-id4="' . $row2["id"] . '" > <a class="btn btn-default" href="' . substr($row2["path"], 3) . '"><span class="glyphicon glyphicon-paperclip"></span></a></td>'
+                . ' <td align="center" class="lampiran" data-id4="' . $row2["id"] . '" > <a class="btn btn-xs btn-default" href="' . substr($row2["path"], 3) . '"><span class="glyphicon glyphicon-paperclip"></span></a></td>'
                 . ' <td>'
                 . '     <button class="btn btn-danger btn-xs" name="btn_delete3" id="btn_delete3" data-id3="' . $row["nrp"] . '">'
                 . '         <span class="glyphicon glyphicon-remove"></span> Tolak'

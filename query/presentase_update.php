@@ -3,9 +3,9 @@
  $id = $_POST["id"];  
  $text = $_POST["text"];  
  $column_name = $_POST["column_name"];  
- $sql = "UPDATE nilai_harian SET ".$column_name."=".$text." WHERE id=".$id."";  
+ $sql = "UPDATE presentase_nilai SET ".$column_name."=".$text." WHERE id=".$id."";  
  if(mysqli_query($connect, $sql))  
  {  
-      echo 'Data Updated';  
+      echo 'Data Berhasil Diperbarui';  
  }  
  ?>  

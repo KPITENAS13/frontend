@@ -6,8 +6,10 @@
             <name>labif</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Absensi</word>
             <word>Dasar</word>
             <word>Tidak</word>
+            <word>UTS</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

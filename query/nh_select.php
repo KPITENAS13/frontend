@@ -1,7 +1,10 @@
 <?php
+$praktikum = $_POST['praktikum'];
+$periode = $_POST['periode'];
+$nrp = $_POST['nrp'];
 $connect = mysqli_connect("localhost", "root", "", "inventaris");
 $output = '';
-$sql = "SELECT * FROM nilai_harian WHERE nrp=".$_POST["nrp"]." AND periode='".$_POST["periode"]."' AND praktikum='".$_POST["praktikum"]."'";
+$sql = "SELECT * FROM nilai_harian WHERE nrp=".$nrp." AND periode='".$periode."' AND praktikum='".$praktikum."'";
 $result = mysqli_query($connect, $sql);
 $output .= ''
         . '<div class="table-responsive">'
@@ -32,7 +35,7 @@ if(mysqli_num_rows($result) > 0){
             . ' </tr>';
 }else{
     $output .= '<tr>'
-            . '     <td colspan="5"> Data Not Fount</td>'
+            . '     <td colspan="5"> Data Tidak Ditemukan</td>'
             . ' </tr>';
 }
 $output .= '</table>'

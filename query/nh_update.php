@@ -6,6 +6,6 @@
  $sql = "UPDATE nilai_harian SET ".$column_name."=".$text." WHERE id=".$id."";  
  if(mysqli_query($connect, $sql))  
  {  
-      echo 'Data Updated';  
+      echo 'Data Berhasil Diperbarui';  
  }  
  ?>  

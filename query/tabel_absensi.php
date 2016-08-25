@@ -2,10 +2,12 @@
 include 'koneksi.php';
 //cek jumlah pertemuan
 $kelas = "";
-if (isset($_POST["kelas"])) {
-    $periode = $_POST["periode"];
-    $praktikum = $_POST["praktikum"];
-    $kelas = $_POST["kelas"];
+$periode = "";
+$praktikum = "";
+if (isset($_POST['praktikum'])) {
+    $periode = $_POST['periode'];
+    $praktikum = $_POST['praktikum'];
+    $kelas = $_POST['kelas'];
 }
 
 $query = "SELECT COUNT(DISTINCT pertemuan) AS jml FROM absensi WHERE nama_praktikum='$praktikum' and periode='$periode' and kelas='$kelas'";

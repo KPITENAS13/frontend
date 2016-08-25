@@ -48,7 +48,7 @@ session_start();
         <section id="feature">
             <div class="center wow fadeInDown">
                 <h2>
-                    Koordinator Praktikum <br>
+                    Koordinator Praktikum 
                     <?php
                     if ($_GET['kategori'] == "PEMDAS") {
                         echo 'Pemrograman Dasar';
@@ -105,8 +105,19 @@ session_start();
                                         </div>
 
                                         <div class="tab-pane active in" id="tab2">
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2"
-                                                   width="100%">
+                                            <b>Presentase Nilai</b>
+                                            <div id="presentase">
+                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel5" width="100%">
+                                                    <tr align="center">
+                                                        <td>Nilai Harian</td>
+                                                        <td>Nilai Absensi</td>
+                                                        <td>Nilai UTS</td>
+                                                        <td>Nilai UAS</td>
+                                                        <td>Nilai Project</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>
@@ -193,7 +204,7 @@ session_start();
                                                     }
                                                     ?>">
                                                 </div>
-                                                <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
+                                                <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value)">Lihat</button>
                                             </form>
                                             <br>
                                             <div id="mahasiswa"></div>
@@ -277,7 +288,7 @@ session_start();
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="control-label" for="basicinput">Catatan</label>
                                 <div class="controls">
