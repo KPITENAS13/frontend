@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
     }
 } else {
     $output .= '<tr>'
-            . '     <td colspan="3"> Tidak Ada Permintaan</td>'
+            . '     <td colspan="43"> Tidak Ada Permintaan</td>'
             . ' </tr>';
 }
 $output .= '</table>'

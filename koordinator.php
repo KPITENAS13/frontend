@@ -94,7 +94,13 @@ session_start();
                                 <div class="parrent media-body">
                                     <div class="tab-content">
                                         <div class="tab-pane" id="tab1" align="center">
-                                            <button type="button" class="btn btn-default" style="margin-bottom: 2%;" onclick="asisten_req()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                                            <button type="button" class="btn btn-default" style="margin-bottom: 2%; float: left;" onclick="asisten_req()"
+                                                    ><span class="glyphicon glyphicon-refresh"></span> Refresh
+                                            </button>
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#OpenRegisterModal" style="margin-bottom: 2%; float: right;" id="br" name="br"                                                    >
+                                                <span class="glyphicon glyphicon-calendar"></span> Open Registration
+                                            </button>
+                                            <div id="regtext"><b>Pendaftaran Ditutup</b></div>
                                             <div id="req_asisten" align="center"></div>
                                         </div>
 
@@ -176,8 +182,16 @@ session_start();
                                             <form class="form-inline" role="form" align="center">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php if(isset($_GET['periode'])){echo $_GET['periode'];} ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php if(isset($_GET['kategori'])){echo $_GET['kategori'];} ?>">
+                                                    <input type="hidden" id="periode" value="<?php
+                                                    if (isset($_GET['periode'])) {
+                                                        echo $_GET['periode'];
+                                                    }
+                                                    ?>">
+                                                    <input type="hidden" id="praktikum" value="<?php
+                                                    if (isset($_GET['kategori'])) {
+                                                        echo $_GET['kategori'];
+                                                    }
+                                                    ?>">
                                                 </div>
                                                 <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
                                             </form>
@@ -216,282 +230,67 @@ session_start();
         <script src="js/jquery-1.12.3.js"></script>
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#tabel1').DataTable();
-                $('#tabel2').DataTable();
-                asisten_data();
-                asisten_req();
-                koor_data();
-            });
-            function asisten_data() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistendata_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#data_asisten').html(data);
-                    }
-                });
-            }
-
-            function asisten_req() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistenreq_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#req_asisten').html(data);
-                    }
-                });
-            }
-
-            function koor_data() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistenkoor_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#data_koor').html(data);
-                    }
-                });
-            }
-
-            
-
-            function showNilai(nrp) {
-                if (nrp == "") {
-                    document.getElementById("live_data").innerHTML = "<b>Masukkan NRP peserta untuk melihat detail nilai...</b>";
-                    return;
-                } else {
-                    $.ajax({
-                        url: "query/nh_select.php",
-                        method: "POST",
-                        data: {nrp: nrp, periode: periode, praktikum: praktikum},
-                        dataType: "text",
-                        success: function (data) {
-                            $('#live_data').html(data);
-                        }
-                    });
-                }
-            }
-            
-            function update_koor(nrp, periode, praktikum) {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;        
-                if (nrp == "") {
-                    return;
-                } else {
-                    $.ajax({
-                        url: "query/asistenkoor_insert.php",
-                        method: "POST",
-                        data: {nrp: nrp, periode: periode, praktikum: praktikum},
-                        dataType: "text",
-                        success: function (data) {
-                            //$('#data_koor').html(data);
-                            alert(data);
-                            koor_data();
-                        }
-                    });
-                }
-            }
-
-            $(document).on('click', '#btn_add', function () {
-                var pertemuan = $('#pertemuan').text();
-                var nrp = document.getElementById("nrp").value;
-                var tp = $('#tp').text();
-                var th = $('#th').text();
-                var ta = $('#ta').text();
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (pertemuan == '') {
-                    alert("Masukkan Pertemuan Terlebih Dahulu");
-                    return false;
-                }
-                if (tp == '') {
-                    alert("Masukkan Nilai TP Terlebih Dahulu");
-                    return false;
-                }
-                if (th == '') {
-                    alert("Masukkan Nilai TH Terlebih Dahulu");
-                    return false;
-                }
-                if (ta == '') {
-                    alert("Masukkan Nilai TA Terlebih Dahulu");
-                    return false;
-                }
-                $.ajax({
-                    url: "query/nh_insert.php",
-                    method: "POST",
-                    data: {pertemuan: pertemuan, tp: tp, th: th, ta: ta, periode: periode, praktikum: praktikum, nrp: nrp},
-                    dataType: "text",
-                    success: function (data)
-                    {
-                        alert(data);
-                        showNilai(nrp, periode, praktikum);
-                    }
-                })
-            });
-
-            $(document).on('click', '#btn_delete', function () {
-                var id = $(this).data("id5");
-                var nrp = document.getElementById("nrp").value;
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Are you sure you want to delete this?"))
-                {
-                    $.ajax({
-                        url: "query/nh_delete.php",
-                        method: "POST",
-                        data: {id: id},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            showNilai(nrp, periode, praktikum);
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete2', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah ada yakin ingin menghapus ?"))
-                {
-                    $.ajax({
-                        url: "query/asistendata_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_data();
-                            asisten_req();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete3', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ingin menghapus dari Request Asisten?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete4', function () {
-                var nrp = $(this).data("id1");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ingin menghapus dari Koordinator Asisten ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenkoor_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            koor_data();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_update3', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_update.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-            
-            $(document).on('click', '#btn_update4', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_update.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-
-            function edit_data(id, text, column_name) {
-                $.ajax({
-                    url: "query/nh_update.php",
-                    method: "POST",
-                    data: {id: id, text: text, column_name: column_name},
-                    dataType: "text",
-                    success: function (data) {
-                        alert(data);
-                    }
-                });
-            }
-            $(document).on('blur', '.pertemuan', function () {
-                var id = $(this).data("id1");
-                var pertemuan = $(this).text();
-                edit_data(id, pertemuan, "pertemuan");
-            });
-            $(document).on('blur', '.tp', function () {
-                var id = $(this).data("id2");
-                var tp = $(this).text();
-                edit_data(id, tp, "tp");
-            });
-            $(document).on('blur', '.th', function () {
-                var id = $(this).data("id3");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-            $(document).on('blur', '.ta', function () {
-                var id = $(this).data("id4");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-        </script>
+        <script src="js/koordinator.js"></script>
+        <script src="js/modal.js"></script>
     </body>
-</html
+</html>
+
+<!-- Modal -->
+<div class="modal fade" id="OpenRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form onsubmit="" name="myForm" class="form-horizontal row-fluid" method="post" action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Informasi Pendaftaran</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Persyaratan yang harus dipenuhi : </p>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">CV</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="cv">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Transkrip Nilai</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="transkrip">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Foto</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="foto">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Catatan</label>
+                                <div class="controls">
+                                    <textarea class="form-control" rows="2" id="note" placeholder="Catatan"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal" name="btn_register" id="btn_register" class="btn btn-primary">Proses</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
