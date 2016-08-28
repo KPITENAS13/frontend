@@ -23,7 +23,7 @@ if (empty($row)) {
         <h4><span>$row[nama]</span></h4>";
     if($row["nid"]==$_SESSION['kode']){
         echo"
-            <h4><a class='btn btn-primary' href='koordinator.php?kategori=$_POST[kategori]&&periode=$_POST[periode]'>Halaman Koordinator Praktikum</a></h4>
+            <h4><a class='btn btn-primary' href='koordinator.php?kategori=$kategori&&periode=$periode'>Halaman Koordinator Praktikum</a></h4>
         </div>";
     }else{
         echo"</div>";

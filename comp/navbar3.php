@@ -37,8 +37,7 @@ $r2 = mysql_fetch_array($h2);
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Praktikum <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="absensi.php">Absensi Praktikum</a></li>
-                        <li><a href="arsip.php">Arsip</a></li>
-                        <li><a href="#">Dokumentasi</a></li>
+                        <li><a href="arsip.php">Arsip & Dokumentasi</a></li>
                         <li><a href="info_jadwal_praktikum.php">Jadwal Praktikum</a></li>
                         <li><a href="praktikum.php">Praktikum</a></li>
                     </ul>

@@ -1,6 +1,6 @@
 <?php
 
-require_once './PHPWord.php';
+require_once '../admin/admin/PHPWord.php';
 include '../koneksi.php';
 
 $tanggal_upload = date("Y/m/d");
@@ -10,7 +10,8 @@ $prak = $_POST['praktikum'];
 $kelas = $_POST['kelas'];
 $pertemuan = $_POST['pertemuan'];
 $asist = $_POST['asisten'];
-$nama_file = "../file/Absensi_" . $prak . "_" . $per . "_" . $kelas . ".docx";
+$nama_file = "../admin/file/Absensi_" . $prak . "_" . $per . "_" . $kelas . ".docx";
+$path = "../file/Absensi_" . $prak . "_" . $per . "_" . $kelas . ".docx";
 $nama_file2 = "Absensi_" . $prak . "_" . $per . "_" . $kelas . ".docx";
 $asisten = explode("\n", str_replace("\r", "", $asist));
 
@@ -19,7 +20,7 @@ if ($per == "1617") {
     $periode = "2016/2017";
 } else if ($per == "1718") {
     $periode = "2017/2018";
-} else if ($per == "1819") {
+} else if ($per == "1829") {
     $periode = "2018/2019";
 } else if ($per == "1920") {
     $periode = "2019/2020";
@@ -96,6 +97,6 @@ $objWriter = PHPWord_IOFactory::createWriter($PHPWord, 'Word2007');
 $objWriter->save($nama_file);
 mysql_query("INSERT INTO file 
         (nama_file,tanggal_upload,kategori,path)VALUES 
-        ('$nama_file2','$tanggal_upload','Absensi','$nama_file')");
-header("location:../admin_arsip.php?kategori=Absensi");
+        ('$nama_file2','$tanggal_upload','Absensi','$path')");
+header("location:../arsip.php");
 ?>
