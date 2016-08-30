@@ -35,8 +35,10 @@ session_start();
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else {
+            } else if ($_SESSION['kategori'] == "mahasiswa") {
                 include './comp/navbar2.php';
+            } else if ($_SESSION['kategori'] == "dosen") {
+                include './comp/navbar3.php';
             }
             ?>
         </header><!--/header-->
@@ -131,47 +133,57 @@ session_start();
 
                                     <div class=control-group>
                                         <div class=form-group>
-                                            <label class='col-sm-2 control-label' for=basicinput>Nama Alat </label><label class='col-sm-2 control-label' for=basicinput><span>*Minimal diisikan satu</span></label>
+                                            <label class='col-sm-2 control-label' for=basicinput>Nama Alat </label><label class='col-sm-5 control-label' for=basicinput><span>*Minimal diisikan satu dan mengisikannya secara berurut</span></label>
                                             </br></br>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-1</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt1 onChange='cekTxt1();' class='form-control' required> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat1 placeholder='Masukkan Nama Alat' name=txt1 onChange='cekTxt1();' class='form-control' required> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat1Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-2</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt2 onChange='cekTxt2();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat2 placeholder='Masukkan Nama Alat' name=txt2 onChange='cekTxt2();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat2Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-3</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt3 onChange='cekTxt3();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat3 placeholder='Masukkan Nama Alat' name=txt3 onChange='cekTxt3();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat3Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-4</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt4 onChange='cekTxt4();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat4 placeholder='Masukkan Nama Alat' name=txt4 onChange='cekTxt4();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat4Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-5</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt5 onChange='cekTxt5();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat5 placeholder='Masukkan Nama Alat' name=txt5 onChange='cekTxt5();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat5Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-6</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt6 onChange='cekTxt6();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat6 placeholder='Masukkan Nama Alat' name=txt6 onChange='cekTxt6();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat6Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-7</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt7 onChange='cekTxt7();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat7 placeholder='Masukkan Nama Alat' name=txt7 onChange='cekTxt7();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat7Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-8</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt8 onChange='cekTxt8();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat8 placeholder='Masukkan Nama Alat' name=txt8 onChange='cekTxt8();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat8Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-9</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt9 onChange='cekTxt9();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat9 placeholder='Masukkan Nama Alat' name=txt9 onChange='cekTxt9();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat9Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                             <label for='basicinput' class='col-sm-2 control-label'>Alat Ke-10</label>
-                                            <div class='col-sm-10'>
-                                               <input type=text id=basicinput placeholder='Masukkan Nama Alat' name=txt10 onChange='cekTxt10();' class='form-control' disabled=true> 
+                                            <div class='col-sm-10 input-group'>
+                                               <input type=text id=hasilAlat10 placeholder='Masukkan Nama Alat' name=txt10 onChange='cekTxt10();' class='form-control' disabled=true> 
+                                               <a href=# class='input-group-addon btn-danger' data-toggle='modal' data-target='#Alat10Modal' data-keyboard='false' data-backdrop='static'><span>Pilih</span></a>
                                             </div>
                                         </div>	
                                     </div>
@@ -188,72 +200,6 @@ session_start();
                 </div>
             </div>
         </section>  <!--/gmap_area -->
-
-        <section id="bottom">
-            <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Company</h3>
-                            <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">We are hiring</a></li>
-                                <li><a href="#">Meet the team</a></li>
-                                <li><a href="#">Copyright</a></li>
-                                <li><a href="#">Terms of use</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Contact us</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Support</h3>
-                            <ul>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Forum</a></li>
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Refund policy</a></li>
-                                <li><a href="#">Ticket system</a></li>
-                                <li><a href="#">Billing system</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Developers</h3>
-                            <ul>
-                                <li><a href="#">Web Development</a></li>
-                                <li><a href="#">SEO Marketing</a></li>
-                                <li><a href="#">Theme</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Email Marketing</a></li>
-                                <li><a href="#">Plugin Development</a></li>
-                                <li><a href="#">Article Writing</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Our Partners</h3>
-                            <ul>
-                                <li><a href="#">Adipisicing Elit</a></li>
-                                <li><a href="#">Eiusmod</a></li>
-                                <li><a href="#">Tempor</a></li>
-                                <li><a href="#">Veniam</a></li>
-                                <li><a href="#">Exercitation</a></li>
-                                <li><a href="#">Ullamco</a></li>
-                                <li><a href="#">Laboris</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-                </div>
-            </div>
-        </section><!--/#bottom-->
 
         <footer id="footer" class="midnight-blue">
             <?php include './comp/footer.php'; ?>
@@ -421,4 +367,44 @@ session_start();
         </script>
         <script src="admin/scripts/jquery.min.js"></script>
     </body>
+    <!--- Modal Alat1 ---->
+    <div class="modal fade" id="Alat1Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat1.php'; ?>
+    </div>
+    <!--- Modal Alat2 ---->
+    <div class="modal fade" id="Alat2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat2.php'; ?>
+    </div>
+    <!--- Modal Alat3 ---->
+    <div class="modal fade" id="Alat3Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat3.php'; ?>
+    </div>
+    <!--- Modal Alat4 ---->
+    <div class="modal fade" id="Alat4Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat4.php'; ?>
+    </div>
+    <!--- Modal Alat5 ---->
+    <div class="modal fade" id="Alat5Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat5.php'; ?>
+    </div>
+    <!--- Modal Alat6 ---->
+    <div class="modal fade" id="Alat6Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat6.php'; ?>
+    </div>
+    <!--- Modal Alat7 ---->
+    <div class="modal fade" id="Alat7Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat7.php'; ?>
+    </div>
+    <!--- Modal Alat8 ---->
+    <div class="modal fade" id="Alat8Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat8.php'; ?>
+    </div>
+    <!--- Modal Alat9 ---->
+    <div class="modal fade" id="Alat9Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat9.php'; ?>
+    </div>
+    <!--- Modal Alat10 ---->
+    <div class="modal fade" id="Alat10Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php include './modalAlat/MasukanAlat10.php'; ?>
+    </div>
 </html>

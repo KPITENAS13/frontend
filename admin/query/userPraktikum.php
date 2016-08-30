@@ -22,7 +22,7 @@ $sql = "insert into requestpraktikum (kode_pinjam,id_peminjam,nama_praktikum,per
         . "values ('"
         . "$kode_pinjam','"
         . "$id_peminjam','"
-        . "Pemrograman Dasar','"
+        . "$nama_praktikum','"
         . "$periode','"
         . "$alat1','"
         . "$alat2','"

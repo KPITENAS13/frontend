@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -73,6 +76,7 @@
                                                 <th>Last Update</th>
                                                 <th>No. Pelabelan</th>
                                                 <th>Ketersediaan</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,7 +110,7 @@
                                                 <th>Type</th>
                                                 <th>Model</th>
                                                 <th>Last Update</th>
-                                                <th>No. Pelabelan</th>
+                                                <th>No. Pelabelan</th>                                    
                                                 <th>Ketersediaan</th>
                                             </tr>
                                         </tfoot>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (isset($_GET[update])) {
-    $id = $_GET[id];
+if (isset($_GET['update'])) {
+    $id = $_GET['id'];
     include './koneksi.php';
     $query = "select * from topik_ta WHERE id=$id ";
     $hasil = mysql_query($query);

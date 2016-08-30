@@ -1,0 +1,114 @@
+<?php
+include 'koneksi.php';
+$nrp = '';
+$nrp = $_SESSION['kode'];
+$h1 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' AND kode=$nrp");
+$r1 = mysql_fetch_array($h1);
+$h2 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Praktikum' AND kode=$nrp");
+$r2 = mysql_fetch_array($h2);
+?>
+<!-- Navbar User (Dosen)-->
+<nav class="navbar navbar-inverse" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="index.php">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Lab <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="user_inventaris.php">Inventaris</a></li>
+                        <li><a href="info_jadwal_lab.php">Jadwal Penggunaan Lab</a></li>
+                        <li><a href="monitoring.php">Monitoring</a></li>
+                        <li><a href="user_peminjaman_penelitian.php">Peminjaman Penelitian</a></li>
+                        <li><a href="info_topik_TA.php">Topik TA</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Praktikum <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="absensi.php">Absensi Praktikum</a></li>
+                        <li><a href="arsip.php">Arsip & Dokumentasi</a></li>
+                        <li><a href="info_jadwal_praktikum.php">Jadwal Praktikum</a></li>
+                        <li><a href="praktikum.php">Praktikum</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?> <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <?php
+                        if (!empty($r1)) {
+                            echo "<li><a href='#' data-toggle='modal' data-target='#KoorLabModal'>Koordinator Laboratorium</a></li>";
+                        }
+                        ?>
+                        <?php
+                        if (!empty($r2)) {
+                            echo "<li><a href='#' data-toggle='modal' data-target='#KoorPrakModal'>Koordinator Praktikum</a></li>";
+                        }
+                        ?>
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Pemberitahuan</a></li>
+                        <li><a href="process/logout_proses.php">Logout</a></li>
+                    </ul>
+                </li>                
+            </ul>
+        </div>
+    </div><!--/.container-->
+</nav><!--/nav-->
+
+<!-- Modal -->
+<div class="modal fade" id="KoorLabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="alert alert-warning alert-dismissable">
+            <h4 align="center">Verifikasi Halaman Koordinator Laboratorium</h4>
+            <p align="center"><br>Laboratorium mana yang ingin anda akses ?<br></p>
+            <br>
+            <div align="center">
+                <div class="btn-group-vertical" style="width: 50%;">
+                    <?php
+                    $query = "SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' AND kode=$_SESSION[kode]";
+                    $hasil = mysql_query($query);
+                    while ($row = mysql_fetch_array($hasil)) {
+                        $praktikum = $row['praktikum'];
+                        $periode = $row['periode'];
+                        echo "<a href='koordinator_lab.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $row['praktikum'] . " " . $row['periode'] . "</a>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="KoorPrakModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="alert alert-warning alert-dismissable">
+            <h4 align="center">Verifikasi Halaman Koordinator Praktikum</h4>
+            <p align="center"><br>Laboratorium mana yang ingin anda akses ?<br></p>
+            <br>
+            <div align="center">
+                <div class="btn-group-vertical" style="width: 50%;">
+                    <?php
+                    $query = "SELECT * FROM koordinator WHERE jabatan='Koor Praktikum' AND kode=$_SESSION[kode]";
+                    $hasil = mysql_query($query);
+                    while ($row = mysql_fetch_array($hasil)) {
+                        $praktikum = $row['praktikum'];
+                        $periode = $row['periode'];
+                        echo "<a href='koordinator.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $row['praktikum'] . " " . $row['periode'] . "</a>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

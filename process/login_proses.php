@@ -1,8 +1,8 @@
 <?php
 
 include "../koneksi.php";
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['username2'];
+$password = $_POST['password2'];
 $digit = strlen($username);
 
 if ($digit == 4) { //cek digit untuk dosen
@@ -22,22 +22,17 @@ if ($digit == 4) { //cek digit untuk dosen
     }
 } else if ($digit == 9) { //cek digit mahasiswa
     $query = "select * from mahasiswa WHERE id = '$username' AND pin = '$password'";
-    $query2 = "select * from praktikan WHERE nrp = '$username'";
-    $hasil2 = mysql_query($query2);
+    //$query2 = "select * from praktikan WHERE nrp = '$username'";
+    //$hasil2 = mysql_query($query2);
     $hasil = mysql_query($query);
     $row = mysql_fetch_array($hasil);
-    $row2 = mysql_fetch_array($hasil2);
+    //$row2 = mysql_fetch_array($hasil2);
     if ($row['id'] == $username AND $row['pin'] == $password) {
         session_start();
         $_SESSION['username'] = $row['nama'];
         $_SESSION['kode'] = $row['id'];
-        $_SESSION['praktikan'] = "false";
+        $_SESSION['praktikan'] = $row['praktikan'];
         $_SESSION['kategori'] = "mahasiswa";
-        if (!empty($row2)) {
-            $_SESSION['praktikan'] = "true";
-        } else {
-            $_SESSION['praktikan'] = "false";
-        }
         header("location:../index.php");
     } else {
         echo "<script>window.history.back(-1);"
@@ -49,8 +44,10 @@ if ($digit == 4) { //cek digit untuk dosen
     $_SESSION['username'] = "Admin";
     $_SESSION['kategori'] = "admin";
     header("location:../admin/index.php");
-}
-else {
+} else {
     header("location:../index.php");
+    echo "<script>window.history.back(-1);"
+        . "alert('Maaf ID atau Kata sandi tidak terdaftar !');"
+        . "</script>";
 }
 ?>

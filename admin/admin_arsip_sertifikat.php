@@ -7,7 +7,7 @@ if (isset($_GET['update'])) {
     $query = "select * from jadwal_praktikum WHERE id=$id ";
     $hasil = mysql_query($query);
     $row = mysql_fetch_array($hasil);
-    
+
     $waktu = explode(" ", $row[waktu]);
     $hari = $waktu[0];
     $jam = $waktu[1];
@@ -63,10 +63,55 @@ if (isset($_GET['update'])) {
                             <div class="module">
                                 <div class="module-head" style="text-align: center">
                                     <h3>
-                                        Jadwal Praktikum</h3>
+                                        Isi Data Sertifikat</h3>
                                 </div>
                                 <div class="module-body table">
-                                    ...
+                                    <div style="width: 60%; margin-left: 20%;">
+                                        <div class="module">
+                                            <div class="module-body table">
+                                                <form onsubmit="return validateForm()" name="myForm" class="form-horizontal row-fluid" method="post" action="admin/create_sertifikat.php">
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="basicinput">Praktikum</label>
+                                                        <div class="controls">
+                                                            <select tabindex="1" data-placeholder="Select here.." class="span8" name="praktikum" id="pra">
+                                                                <option value="">Select here..</option>
+                                                                <option value="PEMDAS">Pemrograman Dasar</option>
+                                                                <option value="ORKOM">Organisasi & Arsitektur Komputer</option>
+                                                                <option value="JARKOM">Jaringan Komputer</option>
+                                                                <option value="PRC">Pemrograman Robot Cerdas</option>
+                                                                <option value="REKWEB">Rekayasa Web</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="basicinput">Periode</label>
+                                                        <div class="controls">
+                                                            <select tabindex="1" data-placeholder="Select here.." class="span8" name="periode" id="per">
+                                                                <option value="">Select here..</option>
+                                                                <option value="1516">2015/2016</option>
+                                                                <option value="1617">2016/2017</option>
+                                                                <option value="1718">2017/2018</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="basicinput">Nama Asisten</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" rows="5" name="asisten" placeholder="Gunakan Enter untuk memasukan nama lebih dari satu"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <div class="controls">
+                                                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!--/.module-->
@@ -329,7 +374,7 @@ if (isset($_GET['update'])) {
 </div>
 <script>
     var update = '<?php echo $_GET[update]; ?>';
-    if(update=="true"){
+    if (update == "true") {
         $('#UpdateModal').modal('show');
     }
 </script>

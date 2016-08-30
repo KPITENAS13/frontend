@@ -74,9 +74,6 @@ if (isset($_GET['update'])) {
                                                     Periode
                                                 </th>
                                                 <th>
-                                                    Smt
-                                                </th>
-                                                <th>
                                                     Nama Praktikum
                                                 </th>
                                                 <th>
@@ -102,9 +99,6 @@ if (isset($_GET['update'])) {
                                             <tr>
                                                 <th>
                                                     Periode
-                                                </th>
-                                                <th>
-                                                    Smt
                                                 </th>
                                                 <th>
                                                     Nama Praktikum
@@ -179,31 +173,15 @@ if (isset($_GET['update'])) {
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="basicinput">Semester</label>
-                        <div class="controls">
-                            <select tabindex="1" data-placeholder="Select here.." class="span8" name="semester">
-                                <option value="">Select here..</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="control-group">
                         <label class="control-label" for="basicinput">Praktikum</label>
                         <div class="controls">
                             <select tabindex="1" data-placeholder="Select here.." class="span8" name="praktikum">
                                 <option value="">Select here..</option>
-                                <option value="Pemrograman Dasar">Pemrograman Dasar</option>
-                                <option value="Organisasi & Arsitektur Komputer">Organisasi & Arsitektur Komputer</option>
-                                <option value="Jaringan Komputer">Jaringan Komputer</option>
-                                <option value="Pemrograman Robot Cerdas">Pemrograman Robot Cerdas</option>
-                                <option value="Rekayasa Web">Rekayasa Web</option>
+                                <option value="PEMDAS">Pemrograman Dasar</option>
+                                <option value="ORKOM">Organisasi & Arsitektur Komputer</option>
+                                <option value="JARKOM">Jaringan Komputer</option>
+                                <option value="PRC">Pemrograman Robot Cerdas</option>
+                                <option value="REKWEB">Rekayasa Web</option>
                             </select>
                         </div>
                     </div>
@@ -291,39 +269,23 @@ if (isset($_GET['update'])) {
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="basicinput">Semester</label>
-                        <div class="controls">
-                            <select tabindex="1" data-placeholder="Select here.." class="span8" name="semester2">
-                                <option value="">Select here..</option>
-                                <option value="1"<?php if ($row[semester] == '1') echo ' selected="selected"'; ?>>1</option>
-                                <option value="2"<?php if ($row[semester] == '2') echo ' selected="selected"'; ?>>2</option>
-                                <option value="3"<?php if ($row[semester] == '3') echo ' selected="selected"'; ?>>3</option>
-                                <option value="4"<?php if ($row[semester] == '4') echo ' selected="selected"'; ?>>4</option>
-                                <option value="5"<?php if ($row[semester] == '5') echo ' selected="selected"'; ?>>5</option>
-                                <option value="6"<?php if ($row[semester] == '6') echo ' selected="selected"'; ?>>6</option>
-                                <option value="7"<?php if ($row[semester] == '7') echo ' selected="selected"'; ?>>7</option>
-                                <option value="8"<?php if ($row[semester] == '8') echo ' selected="selected"'; ?>>8</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="control-group">
                         <label class="control-label" for="basicinput">Praktikum</label>
                         <div class="controls">
                             <select tabindex="1" data-placeholder="Select here.." class="span8" name="praktikum2">
                                 <option value="">Select here..</option>
-                                <option value="Pemrograman Dasar"<?php if ($row[nama_praktikum] == 'Pemrograman Dasar') echo ' selected="selected"'; ?>>
+                                <option value="PEMDAS"<?php if ($row[nama_praktikum] == 'PEMDAS') echo ' selected="selected"'; ?>>
                                     Pemrograman Dasar
                                 </option>
-                                <option value="Organisasi & Arsitektur Komputer"<?php if ($row[nama_praktikum] == 'Organisasi & Arsitektur Komputer') echo ' selected="selected"'; ?>>
+                                <option value="ORKOM"<?php if ($row[nama_praktikum] == 'ORKOM') echo ' selected="selected"'; ?>>
                                     Organisasi & Arsitektur Komputer
                                 </option>
-                                <option value="Jaringan Komputer"<?php if ($row[nama_praktikum] == 'Jaringan Komputer') echo ' selected="selected"'; ?>>
+                                <option value="JARKOM"<?php if ($row[nama_praktikum] == 'JARKOM') echo ' selected="selected"'; ?>>
                                     Jaringan Komputer
                                 </option>
-                                <option value="Pemrograman Robot Cerdas"<?php if ($row[nama_praktikum] == 'Pemrograman Robot Cerdas') echo ' selected="selected"'; ?>>
+                                <option value="PRC"<?php if ($row[nama_praktikum] == 'PRC') echo ' selected="selected"'; ?>>
                                     Pemrograman Robot Cerdas
                                 </option>
-                                <option value="Rekayasa Web"<?php if ($row[nama_praktikum] == 'Rekayasa Web') echo ' selected="selected"'; ?>>
+                                <option value="REKWEB"<?php if ($row[nama_praktikum] == 'REKWEB') echo ' selected="selected"'; ?>>
                                     Rekayasa Web
                                 </option>
                             </select>

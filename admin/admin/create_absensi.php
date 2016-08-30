@@ -21,6 +21,8 @@ if ($per == "1617") {
     $periode = "2017/2018";
 } else if ($per == "1819") {
     $periode = "2018/2019";
+} else if ($per == "1920") {
+    $periode = "2019/2020";
 }
 
 //praktikum

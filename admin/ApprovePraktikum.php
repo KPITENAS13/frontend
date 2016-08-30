@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -116,65 +119,176 @@
                                     $a10 = $r['alat10'];
 
 
+                                    $KodeBarang1 = $a1;
+                                    $Posisi1 = strpos($KodeBarang1, "-");
+
+                                    $KodeBarang2 = $a2;
+                                    $Posisi2 = strpos($KodeBarang2, "-");
+
+                                    $KodeBarang3 = $a3;
+                                    $Posisi3 = strpos($KodeBarang3, "-");
+
+                                    $KodeBarang4 = $a4;
+                                    $Posisi4 = strpos($KodeBarang4, "-");
+
+                                    $KodeBarang5 = $a5;
+                                    $Posisi5 = strpos($KodeBarang5, "-");
+
+                                    $KodeBarang6 = $a6;
+                                    $Posisi6 = strpos($KodeBarang6, "-");
+
+                                    $KodeBarang7 = $a7;
+                                    $Posisi7 = strpos($KodeBarang7, "-");
+
+                                    $KodeBarang8 = $a8;
+                                    $Posisi8 = strpos($KodeBarang8, "-");
+
+                                    $KodeBarang9 = $a9;
+                                    $Posisi9 = strpos($KodeBarang9, "-");
+
+                                    $KodeBarang10 = $a10;
+                                    $Posisi10 = strpos($KodeBarang10, "-");
+
+
                                     if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null) and ( $a6 <> null) and ( $a7 <> null) and ( $a8 <> null) and ( $a9 <> null) and ( $a10 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi6) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a6' placeholder='$a6' name=txt6 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat6Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi7) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a7' placeholder='$a7' name=txt7 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat7Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi8) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a8' placeholder='$a8' name=txt8 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat8Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-9</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a9' name=txt9 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi9) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a9' placeholder='$a9' name=txt9 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a9' name=txt9 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat9Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat9();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-10</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a10' name=txt10 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi10) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a10' placeholder='$a10' name=txt10 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a10' name=txt10 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat10Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat10();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -182,56 +296,128 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null) and ( $a6 <> null) and ( $a7 <> null) and ( $a8 <> null) and ( $a9 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi6) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a6' placeholder='$a6' name=txt6 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat6Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi7) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a7' placeholder='$a7' name=txt7 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat7Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi8) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a8' placeholder='$a8' name=txt8 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat8Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-9</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a9' name=txt9 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi9) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a9' placeholder='$a9' name=txt9 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a9' name=txt9 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat9Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat9();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -239,50 +425,114 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null) and ( $a6 <> null) and ( $a7 <> null) and ( $a8 <> null)) {
                                         echo"
                                              <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi6) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a6' placeholder='$a6' name=txt6 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat6Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi7) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a7' placeholder='$a7' name=txt7 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat7Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi8) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a8' placeholder='$a8' name=txt8 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a8' name=txt8 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat8Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -290,44 +540,100 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null) and ( $a6 <> null) and ( $a7 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi6) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a6' placeholder='$a6' name=txt6 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat6Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi7) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a7' placeholder='$a7' name=txt7 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a7' name=txt7 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat7Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -335,38 +641,86 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null) and ( $a6 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls> ";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi6) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a6' placeholder='$a6' name=txt6 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a6' name=txt6 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat6Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -374,32 +728,72 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null) and ( $a5 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi5) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a5' placeholder='$a5' name=txt5 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a5' name=txt5 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat5Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -407,26 +801,58 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null) and ( $a4 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi4) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a4' placeholder='$a4' name=txt4 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a4' name=txt4 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat4Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -434,22 +860,46 @@
                                     } else if (($a1 <> null) and ( $a2 <> null) and ( $a3 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a3' name=txt3 class=span5 required>
+                                            <div class=controls>";
+
+                                        if ($Posisi3) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a3' placeholder='$a3' name=txt3 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a3' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat3Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             
@@ -458,14 +908,30 @@
                                     } else if (($a1 <> null) and ( $a2 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls> ";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
-                                            </div></br>
-                                            <label class=control-label for=basicinput>Alat Ke-2</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required>
+                                            </div></br> 
+                                        <label class = control-label for = basicinput>Alat Ke-2</label>
+                                        <div class = controls> ";
+
+                                        if ($Posisi2) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a2' placeholder='$a2' name=txt2 class=span5 required>";
+                                        } else {
+                                            echo"
+                                            <input type=text id=basicinput placeholder='$a2' name=txt2 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat2Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
@@ -473,8 +939,16 @@
                                     } else if (($a1 <> null)) {
                                         echo"
                                             <label class=control-label for=basicinput>Alat Ke-1</label>
-                                            <div class=controls>
-                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required>
+                                            <div class=controls> ";
+
+                                        if ($Posisi1) {
+                                            echo"
+                                                <input type=text id=basicinput value='$a1' placeholder='$a1' name=txt1 class=span5 required> ";
+                                        } else {
+                                            echo"
+                                                <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
+                                        }
+                                        echo"
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>

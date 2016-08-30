@@ -1,9 +1,9 @@
 <?php
 include 'koneksi.php';
-$kategori = $_GET[kategori];
-$q = mysql_query("SELECT * FROM file WHERE kategori='$_GET[kategori]'");
+$kategori = $_GET['kategori'];
+$q = mysql_query("SELECT * FROM file WHERE kategori='$kategori'");
 while ($r = mysql_fetch_array($q)) {
-    $file = substr($r[path], 3);
+    $file = substr($r['path'], 3);
     echo "
         <tr>
             <td><a href='$file'>$r[nama_file]</a></td>

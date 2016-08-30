@@ -39,7 +39,7 @@ session_start();
                             include './components/sidebar4.php';
                         } else if ($_SESSION['kategori'] == "dosen") { //jika dosen yang masuk
                             include './components/sidebar2.php';
-                        } else if ($_SESSION['kategori'] == "mahasiswa") { //jika mahasiswa yang masuk
+                        } else if ($_SESSION['kategori'] == "mahasiswa"){ //jika mahasiswa yang masuk
                             include './components/sidebar3.php';
                         }
                         ?>
@@ -115,6 +115,6 @@ session_start();
         <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
-        <script src="scripts/jquery.min.js"></script>
+
     </body>
 </html>

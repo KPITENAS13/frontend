@@ -1,6 +1,5 @@
 <?php
 include "koneksi/koneksi.php";
-session_start();
 //        menampilkan pesan jika ada pesan
 if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
     echo '<div class="pesan" align="center">' . $_SESSION['pesan'] . '</div>';
@@ -102,6 +101,12 @@ $_SESSION['pesan'] = '';
                     </a>
                 </li>
             </ul>
+        </li>
+        <li>
+            <a href="printqrcode.php">
+                <i class="menu-icon icon-qrcode"></i>
+                Print QR Code
+            </a>
         </li>
     </ul>
     <!--/.widget-nav-->

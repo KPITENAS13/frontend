@@ -141,7 +141,7 @@ session_start();
                     <h4 class="modal-title" id="myModalLabel">Camera 01</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="http://10.224.125.35:8080/video">
+                    <img src="http://10.82.245.79:8080/video">
                 </div>
                 <div class="modal-footer">
                     <p>Laboratorium Pemrograman Dasar</p>

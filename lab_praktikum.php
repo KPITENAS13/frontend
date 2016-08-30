@@ -9,7 +9,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Blog Single | Corlate</title>
+        <title>Lab Praktikum | Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,11 +25,13 @@ session_start();
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->       
-        <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel="shortcut icon" href="images/ico/icon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+
     </head><!--/head-->
 
     <body>
@@ -37,22 +39,56 @@ session_start();
             <?php
             if (empty($_SESSION['username'])) {
                 include './comp/navbar1.php';
-            } else {
+            } else if ($_SESSION['kategori'] == "mahasiswa") {
                 include './comp/navbar2.php';
+            } else if ($_SESSION['kategori'] == "dosen") {
+                include './comp/navbar3.php';
             }
             ?>
         </header><!--/header-->
 
         <section id="feature">
             <div class="center wow fadeInDown">
-                <h2>Laboratorium <?php echo $_GET['kategori']; ?></h2>
+                <h2>
+                    Laboratorium 
+                    <?php
+                    if ($_GET['kategori'] == "PEMDAS") {
+                        echo 'Pemrograman Dasar';
+                    } else if ($_GET['kategori'] == "ORKOM") {
+                        echo 'Organisasi & Arsitektur Komputer';
+                    } else if ($_GET['kategori'] == "PBD") {
+                        echo 'Pemrograman Basis Data';
+                    } else if ($_GET['kategori'] == "PRC") {
+                        echo 'Pemrograman Robot Cerdas';
+                    } else if ($_GET['kategori'] == "JARKOM") {
+                        echo 'Jaringan Komputer';
+                    } else if ($_GET['kategori'] == "REKWEB") {
+                        echo 'Rekayasa Web';
+                    } else if ($_GET['kategori'] == "JST") {
+                        echo 'Jaringan Syaraf Tiruan';
+                    } else if ($_GET['kategori'] == "BASDAT") {
+                        echo 'Basis Data';
+                    } else if ($_GET['kategori'] == "PBO") {
+                        echo 'Pemrograman Berorientasi Objek';
+                    }
+                    echo ' Periode ' . $_GET['periode'];
+                    ?>
+                </h2>
                 <p class="lead">
                     Pusat informasi kegiatan praktikum Laboratorium Teknik Informatika ITENAS
                 </p>
             </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 wow fadeInDown" data-wow-delay="300ms">
-
+            <div class="container">
+                <div class="row contact-wrap">
+                    <div class="col-md-4 wow fadeInDown" data-wow-delay="300ms">
+                        <?php include './comp/koor_kelas.php'; ?>
+                    </div>
+                    <div class="col-md-4 wow fadeInDown" data-wow-delay="600ms">
+                        <?php include './comp/koor_praktikum.php'; ?>
+                    </div>
+                    <div class="col-md-4 wow fadeInDown" data-wow-delay="900ms">
+                        <?php include './comp/koor_lab.php'; ?>
+                    </div>
                 </div>
             </div>
         </section>  <!--/gmap_area -->
@@ -61,122 +97,86 @@ session_start();
             <div class="center wow fadeInDown">
                 <h2>Peserta Praktikum</h2>
                 <p class="lead">
-                    Nama mahasiswa yang mengikuti praktikum
+                    Nama mahasiswa yang terdaftar untuk mengikuti praktikum Laboratorium
                 </p>
             </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 wow fadeInDown" data-wow-delay="300ms" align="center">
-                    <?php
-                    if ($_SESSION['praktikan'] == "false") {
-                        echo
-                        "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#DaftarModal'>
-                            Daftar Sebagai Peserta
-                        </button>";
-                    }else if($_SESSION['praktikan']=="request"){
-                        echo
-                        "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#DaftarModal' disabled>
-                            Permintaan Sedang Diproses
-                        </button>";
-                    }else if($_SESSION['praktikan']=="true"){
-                        echo
-                        "<button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#DaftarModal'>
-                            Peminjaman Barang Praktikum
-                        </button>";
-                    }
-                    ?>
-                </div>
-                <div class="col-sm-10 col-sm-offset-1 wow fadeInDown" data-wow-delay="300ms">
-                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped" id="tabel2"
-                           width="100%">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Judul
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            include './query/tabel_topik_TA_disarankan.php';
-                            ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>
-                                    Judul
-                                </th>
-                            </tr>
-                        </tfoot>
-                    </table>
+            <div class="container">
+                <div class="row contact-wrap">
+                    <div class="col-md-12 wow fadeInDown" data-wow-delay="300ms" align="center">
+                        <?php
+                        include './koneksi.php';
+                        $nrp = '';
+                        if(isset($_GET['kategori'])){
+                            $kategori = $_GET['kategori'];
+                            $periode = $_GET['periode'];
+                            $nrp = $_SESSION['kode'];
+                        }
+                        $query = "select approve from praktikum WHERE prak='$kategori' AND periode='$periode' AND nrp=$nrp";
+                        $hasil = mysql_query($query);
+                        $row = mysql_fetch_array($hasil);
+                        if ($row['approve'] == "") {
+                            echo '
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#DaftarModal" id="tombol">
+                                Daftar Sebagai Peserta
+                            </button>';
+                        } else if ($row['approve'] == "R") {
+                            echo '
+                            <button class="btn btn-primary btn-lg" disabled>
+                                Permintaan Sedang Diproses
+                            </button>';
+                        } else if ($row['approve'] == "Y") {
+                            echo "
+                            <a href='user_peminjaman_praktikum.php?praktikum=$kategori' class='btn btn-primary btn-lg' >
+                                Peminjaman Peralatan Praktikum
+                            </a>";
+                        }
+                        ?>
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-1 wow fadeInDown" data-wow-delay="300ms">
+                        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel1"
+                               width="100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        NRP
+                                    </th>
+                                    <th>
+                                        Nama
+                                    </th>
+                                    <th>
+                                        Kelas
+                                    </th>
+                                    <th>
+                                        Nilai
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include './query/tabel_praktikum.php';
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>
+                                        NRP
+                                    </th>
+                                    <th>
+                                        Nama
+                                    </th>
+                                    <th>
+                                        Kelas
+                                    </th>
+                                    <th>
+                                        Nilai
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>  <!--/gmap_area -->
-
-        <section id="bottom">
-            <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Company</h3>
-                            <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">We are hiring</a></li>
-                                <li><a href="#">Meet the team</a></li>
-                                <li><a href="#">Copyright</a></li>
-                                <li><a href="#">Terms of use</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Contact us</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Support</h3>
-                            <ul>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Forum</a></li>
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Refund policy</a></li>
-                                <li><a href="#">Ticket system</a></li>
-                                <li><a href="#">Billing system</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Developers</h3>
-                            <ul>
-                                <li><a href="#">Web Development</a></li>
-                                <li><a href="#">SEO Marketing</a></li>
-                                <li><a href="#">Theme</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Email Marketing</a></li>
-                                <li><a href="#">Plugin Development</a></li>
-                                <li><a href="#">Article Writing</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h3>Our Partners</h3>
-                            <ul>
-                                <li><a href="#">Adipisicing Elit</a></li>
-                                <li><a href="#">Eiusmod</a></li>
-                                <li><a href="#">Tempor</a></li>
-                                <li><a href="#">Veniam</a></li>
-                                <li><a href="#">Exercitation</a></li>
-                                <li><a href="#">Ullamco</a></li>
-                                <li><a href="#">Laboris</a></li>
-                            </ul>
-                        </div>    
-                    </div><!--/.col-md-3-->
-                </div>
-            </div>
-        </section><!--/#bottom-->
 
         <footer id="footer" class="midnight-blue">
             <?php include './comp/footer.php'; ?>
@@ -194,11 +194,23 @@ session_start();
         <script>
             $(document).ready(function () {
                 $('#tabel1').DataTable();
-                $('#tabel2').DataTable();
             });
+
+            function ValidateExtension() {
+                var allowedFiles = [".doc", ".docx", ".pdf"];
+                var fileUpload = document.getElementById("fileToUpload");
+                var lblError = document.getElementById("lblError");
+                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+                if (!regex.test(fileUpload.value.toLowerCase())) {
+                    lblError.innerHTML = "Please upload files having extensions: <b>" + allowedFiles.join(', ') + "</b> only.";
+                    return false;
+                }
+                lblError.innerHTML = "";
+                return true;
+            }
         </script>
     </body>
-</html>
+</html
 
 <!-- Modal -->
 <div class="modal fade" id="DaftarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -207,25 +219,51 @@ session_start();
             <form name="formlogin" method="post" action="process/daftar_praktikan_proses.php" onsubmit="return validasi(this)">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Daftar Peserta Praktikum</h4>
+                    <h4 class="modal-title" id="myModalLabel">Informasi Praktikum</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Masukkan periode praktikum</p>
-                    <div class="row">
-                        <div class="input-group">
-                            <span class="input-group-addon">Tahun</span>
-                            <input type="text" class="form-control span2" placeholder="Masukkan Tahun Pertama" maxlength="4" name="th1">
-                            <span class="input-group-addon span1">/</span>
-                            <span class="input-group-addon">Tahun</span>
-                            <input type="text" class="form-control span2" placeholder="Masukkan Tahun Kedua" maxlength="4" name="th2">
-                            <input type="hidden" name="kategori" value="<?php echo $_GET[kategori]; ?>">
+                    <div class="form-group">
+                        <label class="control-label" for="basicinput">Periode</label>
+                        <div class="controls">
+                            <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
+                                <option value="">Select here..</option>
+                                <option value="2016/2017">2016/2017</option>
+                                <option value="2017/2018">2017/2018</option>
+                                <option value="2018/2019">2017/2018</option>
+                                <option value="2019/2020">2017/2018</option>
+                            </select>
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Proses</button>
+                    <button type="submit" class="btn btn-primary">Daftar</button>
                 </div>
             </form>
         </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="AslabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="alert alert-warning alert-dismissable">
+            <form name="formlogin" method="post" action="process/daftar_aslab_proses.php" enctype="multipart/form-data">
+                <h4 align="center">Verifikasi Pendaftaran Asisten Laboratorium</h4>
+                <p><br>Persyaratan yang harus dipenuhi untuk mendaftar sebagai asisten laboratorium adalah sebagai berikut :<br></p>
+                <?php
+                include './comp/persyaratan.php';
+                ?>
+                <br><input type="file" id="fileToUpload" name="fileToUpload">
+                <p align="center">
+                    <br>
+                    <span id="lblError" style="color: red;"></span>
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
+                    <button type="submit" name="submit" onclick="return ValidateExtension()" class="btn btn-success" style="width: 30%;">Proses</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger" aria-hidden="true" style="width: 30%;">Batal</button>
+                </p>
+            </form>
+        </div>
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
