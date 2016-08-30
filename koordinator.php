@@ -9,7 +9,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Koor. Praktikum| Lab IF</title>
+        <title>Koor. Praktikum | Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -217,7 +217,34 @@ session_start();
                                         </div>
 
                                         <div class="tab-pane" id="tab5">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                                            <br>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/modul.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">MODUL</h3>
+                                                        <p>
+                                                            <?php include './comp/modul.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/jobsheet.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">JOBSHEET</h3>
+                                                        <p>
+                                                            <?php include './comp/jobsheet.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div> <!--/.tab-content-->  
                                 </div> <!--/.media-body--> 
@@ -242,7 +269,7 @@ session_start();
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
         <script src="js/koordinator.js"></script>
-        <script src="js/modal.js"></script>
+        <!--<script src="js/modal.js"></script>-->
     </body>
 </html>
 
@@ -305,3 +332,57 @@ session_start();
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="UploadModul" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Modul Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="process/upload_modul.php" onsubmit="infoInsert()" class="form-horizontal row-fluid" enctype="multipart/form-data">
+                    <input type="hidden" name="praktikum" value="<?php echo $_GET['kategori']; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="basicinput">File Modul</label>
+                        <div class="controls">
+                            <input type="file" id="fileToUpload" class="" name="fileToUpload">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="UploadJobsheet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Jobsheet Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="process/upload_jobsheet.php" onsubmit="infoInsert()" class="form-horizontal row-fluid" enctype="multipart/form-data">
+                    <input type="hidden" name="praktikum" value="<?php echo $_GET['kategori']; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="basicinput">Pilih File</label>
+                        <div class="controls">
+                            <input type="file" id="fileToUpload" class="span8" name="fileToUpload">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

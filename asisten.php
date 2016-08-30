@@ -217,17 +217,34 @@ session_start();
                                         </div>
                                         
                                         <div class="tab-pane" id="tab4">
-                                            <form class="form-inline" role="form" align="center">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
-                                                </div>
-                                                <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
-                                            </form>
                                             <br>
-                                            <div id="mahasiswa"></div>
-                                            <div id="live_data" align="center"><b>Masukkan NRP peserta untuk melihat detail nilai...</b></div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/modul.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">MODUL</h3>
+                                                        <p>
+                                                            <?php include './comp/modul.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/jobsheet.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">JOBSHEET</h3>
+                                                        <p>
+                                                            <?php include './comp/jobsheet.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         
                                     </div> <!--/.tab-content-->  

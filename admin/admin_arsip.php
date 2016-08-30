@@ -92,15 +92,15 @@ session_start();
                                         <button class="btn btn-success" data-toggle="modal"  style="width: 90%" 
                                                 data-target="
                                                 <?php 
-                                                if($_GET[kategori]=="Modul"){
+                                                if($_GET['kategori']=="Modul"){
                                                     echo "#UploadModul";
-                                                }else if($_GET[kategori]=="Jobsheet"){
+                                                }else if($_GET['kategori']=="Jobsheet"){
                                                     echo "#UploadJobsheet";
-                                                }else if($_GET[kategori]=="Absensi"){
+                                                }else if($_GET['kategori']=="Absensi"){
                                                     echo "#UploadAbsensi";
-                                                }else if($_GET[kategori]=="Sertifikat"){
+                                                }else if($_GET['kategori']=="Sertifikat"){
                                                     echo "#UploadSertifikat";
-                                                }else if($_GET[kategori]=="SuratKeluar"){
+                                                }else if($_GET['kategori']=="SuratKeluar"){
                                                     echo "#UploadSurat";
                                                 }
                                                 ?>

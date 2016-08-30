@@ -51,7 +51,7 @@ session_start();
                     <div class="portfolio-items">
                         <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
                             <div class="recent-work-wrap wow fadeInDown" data-wow-delay="300ms">
-                                <img class="img-responsive" src="images/portfolio/recent/item1.png" alt="">
+                                <img class="img-responsive" src="images/lab/lab_daskom.png" alt="">
                                 <div class="overlay">
                                     <div class="recent-work-inner">
                                         <h3><a href="#">Lab DasKom</a></h3>
@@ -68,7 +68,7 @@ session_start();
 
                         <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
                             <div class="recent-work-wrap wow fadeInDown" data-wow-delay="600ms">
-                                <img class="img-responsive" src="images/portfolio/recent/item2.png" alt="">
+                                <img class="img-responsive" src="images/lab/lab_multimedia.png" alt="">
                                 <div class="overlay">
                                     <div class="recent-work-inner">
                                         <h3><a href="#">Lab Multimedia</a></h3>
@@ -77,7 +77,7 @@ session_start();
                                             - Pemrograman Robot Cerdas <br>
                                             - Jaringan Syaraf Tiruan
                                         </p>
-                                        <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
+                                        <a class="preview" href="images/lab/lab_multimedia.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
                                     </div> 
                                 </div>
                             </div>          
@@ -85,7 +85,7 @@ session_start();
 
                         <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
                             <div class="recent-work-wrap wow fadeInDown" data-wow-delay="900ms">
-                                <img class="img-responsive" src="images/portfolio/recent/item3.png" alt="">
+                                <img class="img-responsive" src="images/lab/lab_jarkom.png" alt="">
                                 <div class="overlay">
                                     <div class="recent-work-inner">
                                         <h3><a href="#">Lab JarKom</a></h3>
@@ -94,7 +94,7 @@ session_start();
                                             - Jaringan Komputer <br>
                                             - Rekayasa Web
                                         </p>
-                                        <a class="preview" href="images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
+                                        <a class="preview" href="images/lab/lab_jarkom.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
                                     </div> 
                                 </div>
                             </div>        
@@ -102,17 +102,16 @@ session_start();
 
                         <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
                             <div class="recent-work-wrap wow fadeInDown" data-wow-delay="1200ms">
-                                <img class="img-responsive" src="images/portfolio/recent/item4.png" alt="">
+                                <img class="img-responsive" src="images/lab/lab_daskom.png" alt="">
                                 <div class="overlay">
                                     <div class="recent-work-inner">
                                         <h3><a href="#">Lab BasDat</a></h3>
                                         <p>
                                             Praktikum : <br>
-                                            - Basis Data <br>
                                             - Pemrograman Basis Data <br>
                                             - Pemrograman Berorientasi Objek
                                         </p>
-                                        <a class="preview" href="images/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
+                                        <a class="preview" href="images/lab/lab_daskom.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
                                     </div> 
                                 </div>
                             </div>           
@@ -123,21 +122,7 @@ session_start();
         </section><!--/#portfolio-item-->
 
         <footer id="footer" class="midnight-blue">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                    </div>
-                    <div class="col-sm-6">
-                        <ul class="pull-right">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php include './comp/footer.php'; ?>
         </footer><!--/#footer-->
 
         <script src="js/jquery.js"></script>
