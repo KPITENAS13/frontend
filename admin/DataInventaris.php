@@ -76,6 +76,7 @@ session_start();
                                                 <th>Last Update</th>
                                                 <th>No. Pelabelan</th>
                                                 <th>Ketersediaan</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,7 +110,7 @@ session_start();
                                                 <th>Type</th>
                                                 <th>Model</th>
                                                 <th>Last Update</th>
-                                                <th>No. Pelabelan</th>
+                                                <th>No. Pelabelan</th>                                    
                                                 <th>Ketersediaan</th>
                                             </tr>
                                         </tfoot>
