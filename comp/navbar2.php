@@ -47,6 +47,7 @@ $ro = mysql_fetch_array($ha);
                             echo "<li><a href='#' data-toggle='modal' data-target='#AsistenModal'>Asisten Lab</a></li>";
                         }
                         ?>
+                        <li><a href="#" data-toggle="modal" data-target="#PeminjamanModal">Peminjaman</a></li>
                         <li><a href="#">Profil</a></li>
                         <li><a href="#">Pemberitahuan</a></li>
                         <li><a href="process/logout_proses.php">Logout</a></li>
@@ -76,6 +77,23 @@ $ro = mysql_fetch_array($ha);
                         echo "<a href='asisten.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $praktikum . " " . $periode . "</a>";
                     }
                     ?>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="PeminjamanModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="alert alert-warning alert-dismissable">
+            <h4 align="center">Verifikasi Halaman Peminjaman Barang</h4>
+            <p align="center"><br>Peminjaman kategori apakah yang ingin anda lihat ?<br></p>
+            <br>
+            <div align="center">
+                <div class="btn-group-vertical" style="width: 50%;">
+                    <a href="info_peminjaman_penelitian.php" class="btn btn-default">Peminjaman Penelitian</a>
+                    <a href="info_peminjaman_praktikum.php" class="btn btn-default">Peminjaman Praktikum</a>
                 </div>
             </div>
         </div>

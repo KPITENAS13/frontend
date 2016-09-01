@@ -8,7 +8,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Blog Single | Corlate</title>
+        <title>Peminjaman Praktikum | Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@ session_start();
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->       
-        <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel="shortcut icon" href="images/ico/icon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
@@ -112,6 +112,11 @@ session_start();
                                 $hasil = $print;
                             }
                         }
+                        $periode = $_GET['periode'];
+                        $per_temp = explode("/", $periode);
+                        $p1 = $per_temp[0];
+                        $p2 = $per_temp[1];
+                        
                         echo"
                                 <div class=module-body>
                                 <form class='form-horizontal' role='form' name=frm action='admin/query/userPraktikum.php' method='post'>
@@ -141,10 +146,10 @@ session_start();
                                             <label for='basicinput' class='col-sm-2 control-label'>Periode Ajaran</label>
                                             <div class='col-sm-10 input-group'>
                                                 <span class='input-group-addon'>Tahun</span>
-                                                <input type='text' class='form-control' placeholder='Masukkan Tahun Pertama' maxlength='4' name='th1' required>
+                                                <input type='text' class='form-control' maxlength='4' name='th1' required value='$p1' readonly>
                                                 <span class='input-group-addon'>/</span>
                                                 <span class='input-group-addon'>Tahun</span>
-                                                <input type='text' class='form-control' placeholder='Masukkan Tahun Kedua' maxlength='4' name='th2' required>
+                                                <input type='text' class='form-control' maxlength='4' name='th2' required value='$p2' readonly>
                                             </div>
                                         </div>
                                     </div>

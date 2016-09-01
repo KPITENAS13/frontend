@@ -126,7 +126,7 @@ session_start();
                             </button>';
                         } else if ($row['approve'] == "Y") {
                             echo "
-                            <a href='user_peminjaman_praktikum.php?praktikum=$kategori' class='btn btn-primary btn-lg' >
+                            <a href='user_peminjaman_praktikum.php?praktikum=$kategori&&periode=$periode' class='btn btn-primary btn-lg' >
                                 Peminjaman Peralatan Praktikum
                             </a>";
                         }
