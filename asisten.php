@@ -1,5 +1,11 @@
 <?php
 session_start();
+include './koneksi.php';
+$kategori = $_GET['kategori'];
+$periode = $_GET['periode'];
+$nrp = $_SESSION['kode'];
+$sql = "SELECT * from koordinator where praktikum='$kategori' AND periode='$periode' AND kode=$nrp";
+$result = mysql_query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +90,12 @@ session_start();
                                 <div class="parrent pull-left">
                                     <ul class="nav nav-tabs nav-stacked">
                                         <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Request Praktikan</a></li>
+                                        <?php
+                                        if(mysql_num_rows($result) > 0) {
+                                            echo '
+                                            <li class=""><a href="#tab5" data-toggle="tab" class="analistic-01">Daftar Asisten</a></li>';
+                                        }
+                                        ?>
                                         <li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Nilai Praktikan</a></li>
                                         <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Nilai Harian</a></li>
                                         <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Modul & Jobsheet</a></li>
@@ -129,7 +141,29 @@ session_start();
                                             </table>
                                         </div>
 
+                                        <?php
+                                        if (mysql_num_rows($result) > 0) {
+                                            echo '
+                                            <div class="tab-pane" id="tab5">
+                                                <div id="data_asisten" align="center"></div>
+                                            </div>';
+                                        }
+                                        ?>
+
                                         <div class="tab-pane active in" id="tab2">
+                                            <b>Presentase Nilai</b>
+                                            <div id="presentase">
+                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel5" width="100%">
+                                                    <tr align="center">
+                                                        <td>Nilai Harian</td>
+                                                        <td>Nilai Absensi</td>
+                                                        <td>Nilai UTS</td>
+                                                        <td>Nilai UAS</td>
+                                                        <td>Nilai Project</td>
+                                                    </tr>
+                                                    <?php?>
+                                                </table>
+                                            </div>
                                             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2" width="100%">
                                                 <thead>
                                                     <tr>
@@ -213,9 +247,27 @@ session_start();
                                             </form>
                                             <br>
                                             <div id="mahasiswa"></div>
-                                            <div id="live_data" align="center"><b>Masukkan NRP peserta untuk melihat detail nilai...</b></div>
+                                            <div id="live_data" align="center">
+                                                <p>
+                                                    <b>Masukkan NRP peserta untuk melihat detail nilai...</b> <br>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped" style="width:80%;" id="tabel3">
+                                                        <tr>
+                                                            <th>Pertemuan</th>
+                                                            <th>Tugas Pendahuluan</th>
+                                                            <th>Tugas Harian</th>
+                                                            <th>Tugas Akhir</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5"> Data Tidak Ditemukan</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                </p>
+                                            </div>
                                         </div>
-                                        
+
                                         <div class="tab-pane" id="tab4">
                                             <br>
                                             <div class="col-sm-6 col-md-6">
@@ -246,7 +298,7 @@ session_start();
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div> <!--/.tab-content-->  
                                 </div> <!--/.media-body--> 
                             </div> <!--/.media-->     
@@ -269,130 +321,6 @@ session_start();
         <script src="js/jquery-1.12.3.js"></script>
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#tabel1').DataTable();
-                $('#tabel2').DataTable();
-            });
-
-            function showNilai(nrp, periode, praktikum) {
-                if (nrp == "") {
-                    document.getElementById("live_data").innerHTML = "<b>Masukkan NRP peserta untuk melihat detail nilai...</b>";
-                    return;
-                } else {
-                    $.ajax({
-                        url: "query/nh_select.php",
-                        method: "POST",
-                        data: {nrp: nrp, periode: periode, praktikum: praktikum},
-                        dataType: "text",
-                        success: function (data) {
-                            $('#live_data').html(data);
-                        }
-                    });
-                }
-            }
-            
-            function fetch_mahasiswa(nrp){
-                $.ajax({
-                    url: "query/select_mahasiswa.php",
-                    method: "POST",
-                    data: {nrp: nrp},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#live_data').html(data);
-                    }
-                });
-            }
-
-            $(document).on('click', '#btn_add', function () {
-                var pertemuan = $('#pertemuan').text();
-                var nrp = document.getElementById("nrp").value;
-                var tp = $('#tp').text();
-                var th = $('#th').text();
-                var ta = $('#ta').text();
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (pertemuan == '') {
-                    alert("Masukkan Pertemuan Terlebih Dahulu");
-                    return false;
-                }
-                if (tp == '') {
-                    alert("Masukkan Nilai TP Terlebih Dahulu");
-                    return false;
-                }
-                if (th == '') {
-                    alert("Masukkan Nilai TH Terlebih Dahulu");
-                    return false;
-                }
-                if (ta == '') {
-                    alert("Masukkan Nilai TA Terlebih Dahulu");
-                    return false;
-                }
-                $.ajax({
-                    url: "query/nh_insert.php",
-                    method: "POST",
-                    data: {pertemuan: pertemuan, tp: tp, th: th, ta: ta, periode: periode, praktikum: praktikum, nrp: nrp},
-                    dataType: "text",
-                    success: function (data)
-                    {
-                        alert(data);
-                        showNilai(nrp, periode, praktikum);
-                    }
-                })
-            });
-
-            $(document).on('click', '#btn_delete', function () {
-                var id = $(this).data("id5");
-                var nrp = document.getElementById("nrp").value;
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Are you sure you want to delete this?"))
-                {
-                    $.ajax({
-                        url: "query/nh_delete.php",
-                        method: "POST",
-                        data: {id: id},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            showNilai(nrp, periode, praktikum);
-                        }
-                    });
-                }
-            });
-
-            function edit_data(id, text, column_name)
-            {
-                $.ajax({
-                    url: "query/nh_update.php",
-                    method: "POST",
-                    data: {id: id, text: text, column_name: column_name},
-                    dataType: "text",
-                    success: function (data) {
-                        alert(data);
-                    }
-                });
-            }
-            $(document).on('blur', '.pertemuan', function () {
-                var id = $(this).data("id1");
-                var pertemuan = $(this).text();
-                edit_data(id, pertemuan, "pertemuan");
-            });
-            $(document).on('blur', '.tp', function () {
-                var id = $(this).data("id2");
-                var tp = $(this).text();
-                edit_data(id, tp, "tp");
-            });
-            $(document).on('blur', '.th', function () {
-                var id = $(this).data("id3");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-            $(document).on('blur', '.ta', function () {
-                var id = $(this).data("id4");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-        </script>
+        <script src="js/asisten.js"></script>
     </body>
 </html

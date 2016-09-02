@@ -8,7 +8,7 @@ $sql = "SELECT * FROM nilai_harian WHERE nrp=".$nrp." AND periode='".$periode."'
 $result = mysqli_query($connect, $sql);
 $output .= ''
         . '<div class="table-responsive">'
-        . '     <table class="table table-bordered table-striped" style="width:70%;" id="tabel3">'
+        . '     <table class="table table-bordered table-striped" style="width:80%;" id="tabel3" name="tabel3">'
         . '         <tr>'
         . '             <th>Pertemuan</th>'
         . '             <th>Tugas Pendahuluan</th>'
@@ -18,7 +18,7 @@ $output .= ''
         . '         </tr>';
 if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_array($result)){
-        $output .= '<tr>'
+        $output .= '<tr role="row" class="odd">'
                 . ' <td class="pertemuan" data-id1="'.$row["id"].'" contenteditable>'.$row["pertemuan"].'</td>'
                 . ' <td class="tp" data-id2="'.$row["id"].'" contenteditable>'.$row["tp"].'</td>'
                 . ' <td class="th" data-id3="'.$row["id"].'" contenteditable>'.$row["th"].'</td>'
