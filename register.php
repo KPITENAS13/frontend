@@ -130,6 +130,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" name="email" class="form-control" required="required" placeholder="Masukkan Alamat Email">
+                            </div>
+                            <div class="form-group">
                                 <label>Nama Lengkap *</label>
                                 <input type="text" name="nama" class="form-control" required="required" placeholder="Masukkan Nama Lengkap">
                             </div>

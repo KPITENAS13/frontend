@@ -23,7 +23,7 @@ if ($Lid == 4) {    // Untuk Dosen
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             include "../koneksi.php";
-            mysql_query("INSERT INTO dosen VALUES($id,$pass,'$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
+            mysql_query("INSERT INTO dosen VALUES($id,$pass,'$_POST[email]',$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
             echo"
             <script>
                     alert('Terima kasih telah mendaftar. Sekarang anda dapat masuk..!');
@@ -56,7 +56,7 @@ if ($Lid == 9){     // Untuk Mahasiswa
 } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             include "../koneksi.php";
-            mysql_query("INSERT INTO mahasiswa VALUES($id,$pass,'$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
+            mysql_query("INSERT INTO mahasiswa VALUES($id,$pass,'$_POST[email]','$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
             echo"
             <script>
                     alert('Terima kasih telah mendaftar. Sekarang anda dapat masuk..!');
