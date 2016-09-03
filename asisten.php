@@ -6,6 +6,23 @@ $periode = $_GET['periode'];
 $nrp = $_SESSION['kode'];
 $sql = "SELECT * from koordinator where praktikum='$kategori' AND periode='$periode' AND kode=$nrp";
 $result = mysql_query($sql);
+//------------------------------------------------------------------------------- update nilai absensi
+$per_temp = explode("/", $periode);
+$p1 = substr($per_temp[0], 2, 2);
+$p2 = substr($per_temp[1], 2, 2);
+$newperiode = $p1 . $p2;
+//cek jumlah pertemuan
+$query = "SELECT pertemuan_berlangsung FROM presentase_nilai WHERE praktikum='$kategori' AND periode='$periode'";
+$hasil = mysql_query($query);
+$row = mysql_fetch_array($hasil);
+$jml_pertemuan = $row['pertemuan_berlangsung'];
+
+$q = mysql_query("SELECT DISTINCT nrp,nama,count(nrp)as jml FROM absensi,mahasiswa WHERE absensi.nrp=mahasiswa.id AND nama_praktikum='$kategori' AND periode='$newperiode' GROUP BY nrp");
+while ($r = mysql_fetch_array($q)) {
+    $persen = ($r['jml'] * 100) / $jml_pertemuan;
+    mysql_query("UPDATE praktikum SET absen=$persen WHERE prak='$kategori' AND periode='$periode' AND nrp=$r[nrp]");
+}
+//-------------------------------------------------------------------------------
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +108,7 @@ $result = mysql_query($sql);
                                     <ul class="nav nav-tabs nav-stacked">
                                         <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Request Praktikan</a></li>
                                         <?php
-                                        if(mysql_num_rows($result) > 0) {
+                                        if (mysql_num_rows($result) > 0) {
                                             echo '
                                             <li class=""><a href="#tab5" data-toggle="tab" class="analistic-01">Daftar Asisten</a></li>';
                                         }
@@ -155,15 +172,15 @@ $result = mysql_query($sql);
                                             <div id="presentase">
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel5" width="100%">
                                                     <tr align="center">
-                                                        <td>Nilai Harian</td>
-                                                        <td>Nilai Absensi</td>
-                                                        <td>Nilai UTS</td>
-                                                        <td>Nilai UAS</td>
-                                                        <td>Nilai Project</td>
+                                                        <td>Nilai Harian (%)</td>
+                                                        <td>Nilai Absensi (%)</td>
+                                                        <td>Nilai UTS (%)</td>
+                                                        <td>Nilai UAS (%)</td>
+                                                        <td>Nilai Project (%)</td>
                                                     </tr>
-                                                    <?php?>
                                                 </table>
                                             </div>
+                                            <hr>
                                             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2" width="100%">
                                                 <thead>
                                                     <tr>
@@ -237,14 +254,14 @@ $result = mysql_query($sql);
                                         </div>
 
                                         <div class="tab-pane" id="tab3">
-                                            <form class="form-inline" role="form" align="center">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
-                                                </div>
+                                            <div id="presentase2"></div>
+                                            <hr>
+                                            <div class="form-inline" align="center">
+                                                <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta" style="width: 30%;">
+                                                <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
+                                                <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
                                                 <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
-                                            </form>
+                                            </div>
                                             <br>
                                             <div id="mahasiswa"></div>
                                             <div id="live_data" align="center">

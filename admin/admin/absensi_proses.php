@@ -25,9 +25,9 @@ while ($stat == 0) {
         $kodetemp = explode("-", $kode);
         $nrp = $kodetemp[0] . $kodetemp[1] . $kodetemp[2];
         if(($nrp != $nrptemp) && ($dep != "Asisten")) {
-//            mysql_query("INSERT INTO absensi 
-//            (nrp,nama_praktikum,periode,kelas,pertemuan)VALUES 
-//            ('$nrp','$pra','$per','$kls',$pert)");
+            mysql_query("INSERT INTO absensi 
+            (nrp,nama_praktikum,periode,kelas,pertemuan)VALUES 
+            ('$nrp','$pra','$per','$kls',$pert)");
             mysql_query("INSERT INTO mahasiswa  
             (id,nama)VALUES 
             ('$nrp','$nama')");
@@ -38,6 +38,10 @@ while ($stat == 0) {
         $stat = 1;
     }
 }
+$p1 = substr($per, 0, 2);
+$p2 = substr($per, 2, 2);
+$newperiode = "20".$p1."/20".$p2;
+mysql_query("UPDATE presentase_nilai SET pertemuan_berlangsung=pertemuan_berlangsung+1 WHERE praktikum='$pra' AND periode='$newperiode'");
 unlink($file);
 header('location:../admin_absensi.php');
 ?>
