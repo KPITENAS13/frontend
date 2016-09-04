@@ -33,7 +33,7 @@ $ro = mysql_fetch_array($ha);
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Praktikum <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="absensi.php">Absensi</a></li>
-                        <li><a href="#">Daftar Nilai</a></li>
+                        <li><a href="info_daftar_nilai.php">Daftar Nilai</a></li>
                         <li><a href="info_jadwal_praktikum.php">Jadwal Praktikum</a></li>
                         <li><a href="arsip.php">Modul & Jobsheet</a></li>                        
                         <li><a href="praktikum.php">Praktikum</a></li>

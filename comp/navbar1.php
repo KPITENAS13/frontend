@@ -26,7 +26,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Praktikum <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Daftar Nilai</a></li>
+                        <li><a href="#" onclick="warning();">Daftar Nilai</a></li>
                         <li><a href="absensi.php">Absensi</a></li>
                     </ul>
                 </li>
@@ -72,3 +72,9 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+    function warning(){
+        alert('Silakan Login Terlebih Dahulu');
+    }
+</script>
