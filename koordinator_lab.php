@@ -9,7 +9,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Koordinator | Lab IF</title>
+        <title>Koor. Laboratorium | Lab IF</title>
 
         <!-- core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -69,6 +69,7 @@ session_start();
                     } else if ($_GET['kategori'] == "PBO") {
                         echo 'Pemrograman Berorientasi Objek';
                     }
+                    echo ' Periode ' . $_GET['periode'];
                     ?>
                 </h2>
                 <p class="lead">
@@ -82,24 +83,55 @@ session_start();
                             <div class="media">
                                 <div class="parrent pull-left">
                                     <ul class="nav nav-tabs nav-stacked">
-                                        <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Request Asisten</a></li>
-                                        <li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Nilai Praktikan</a></li>
-                                        <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Nilai Harian</a></li>
+                                        <li class="active"><a href="#tab6" data-toggle="tab" class="analistic-01">Koordinator</a></li>
                                         <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Daftar Asisten</a></li>
+                                        <li class=""><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Praktikan</a></li>
+                                        <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Nilai Harian Praktikan</a></li>
+                                        <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Pendaftaran Asisten</a></li>
                                         <li class=""><a href="#tab5" data-toggle="tab" class="tehnical">Modul & Jobsheet</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="parrent media-body">
                                     <div class="tab-content">
+                                        <div class="tab-pane active in" id="tab6">
+                                            <div class="row contact-wrap">
+                                                <div class="col-md-4 ">
+                                                    <?php include './comp/koor_kelas2.php'; ?>
+                                                </div>
+                                                <div class="col-md-4  ">
+                                                    <?php include './comp/koor_praktikum2.php'; ?>
+                                                </div>
+                                                <div class="col-md-4  ">
+                                                    <?php include './comp/koor_lab.php'; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="tab-pane" id="tab1" align="center">
-                                            <button type="button" class="btn btn-default" style="margin-bottom: 2%;" onclick="asisten_req()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                                            <button type="button" class="btn btn-default" style="margin-bottom: 2%; float: left;" onclick="asisten_req()"><span class="glyphicon glyphicon-refresh"></span> Refresh
+                                            </button>
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#OpenRegisterModal" style="margin-bottom: 2%; float: right;" id="br" name="br"                                                    >
+                                                <span class="glyphicon glyphicon-calendar"></span> Open Registration
+                                            </button>
+                                            <div id="regtext"><b>Pendaftaran Ditutup</b></div>
                                             <div id="req_asisten" align="center"></div>
                                         </div>
 
-                                        <div class="tab-pane active in" id="tab2">
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2"
-                                                   width="100%">
+                                        <div class="tab-pane" id="tab2">
+                                            <b>Presentase Nilai</b>
+                                            <div id="presentase">
+                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel5" width="100%">
+                                                    <tr align="center">
+                                                        <td>Nilai Harian</td>
+                                                        <td>Nilai Absensi</td>
+                                                        <td>Nilai UTS</td>
+                                                        <td>Nilai UAS</td>
+                                                        <td>Nilai Project</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel2" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>
@@ -127,16 +159,13 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    include './query/tabel_praktikum2.php';
+                                                    include './query/tabel_praktikum3.php';
                                                     ?>
                                                 </tbody>
                                                 <tfoot>
@@ -166,9 +195,6 @@ session_start();
                                                             Absen
                                                         </th>
                                                         <th>
-                                                            Total
-                                                        </th>
-                                                        <th>
                                                             Nilai
                                                         </th>
                                                     </tr>
@@ -178,17 +204,35 @@ session_start();
                                         </div>
 
                                         <div class="tab-pane" id="tab3">
-                                            <form class="form-inline" role="form" align="center">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php echo $_GET[periode] ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php echo $_GET[kategori] ?>">
-                                                </div>
+                                            <div id="presentase2"></div>
+                                            <hr>
+                                            <div class="form-inline" align="center">
+                                                <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta" style="width: 30%;">
+                                                <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
+                                                <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
                                                 <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
-                                            </form>
+                                            </div>
                                             <br>
                                             <div id="mahasiswa"></div>
-                                            <div id="live_data" align="center"><b>Masukkan NRP peserta untuk melihat detail nilai...</b></div>
+                                            <div id="live_data" align="center">
+                                                <p>
+                                                    <b>Masukkan NRP peserta untuk melihat detail nilai...</b> <br>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped" style="width:80%;" id="tabel3">
+                                                        <tr>
+                                                            <th>Pertemuan</th>
+                                                            <th>Tugas Pendahuluan</th>
+                                                            <th>Tugas Harian</th>
+                                                            <th>Tugas Akhir</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5"> Data Tidak Ditemukan</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <div class="tab-pane" id="tab4">
@@ -197,7 +241,34 @@ session_start();
                                         </div>
 
                                         <div class="tab-pane" id="tab5">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                                            <br>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/modul.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">MODUL</h3>
+                                                        <p>
+                                                            <?php include './comp/modul.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="media services-wrap">
+                                                    <div class="pull-left">
+                                                        <img class="img-responsive" src="images/services/jobsheet.png">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">JOBSHEET</h3>
+                                                        <p>
+                                                            <?php include './comp/jobsheet.php'; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div> <!--/.tab-content-->  
                                 </div> <!--/.media-body--> 
@@ -221,281 +292,148 @@ session_start();
         <script src="js/jquery-1.12.3.js"></script>
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
-        <script>
-            function asisten_data() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistendata_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#data_asisten').html(data);
-                    }
-                });
-            }
-
-            function asisten_req() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistenreq_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#req_asisten').html(data);
-                    }
-                });
-            }
-
-            function koor_data() {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                $.ajax({
-                    url: "query/asistenkoor_select.php",
-                    method: "POST",
-                    data: {periode: periode, praktikum: praktikum},
-                    dataType: "text",
-                    success: function (data) {
-                        $('#data_koor').html(data);
-                    }
-                });
-            }
-
-            $(document).ready(function () {
-                $('#tabel1').DataTable();
-                $('#tabel2').DataTable();
-                asisten_data();
-                asisten_req();
-                koor_data();
-            });
-
-            function showNilai(nrp) {
-                if (nrp == "") {
-                    document.getElementById("live_data").innerHTML = "<b>Masukkan NRP peserta untuk melihat detail nilai...</b>";
-                    return;
-                } else {
-                    $.ajax({
-                        url: "query/nh_select.php",
-                        method: "POST",
-                        data: {nrp: nrp, periode: periode, praktikum: praktikum},
-                        dataType: "text",
-                        success: function (data) {
-                            $('#live_data').html(data);
-                        }
-                    });
-                }
-            }
-            
-            function update_koor(nrp, periode, praktikum) {
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;        
-                if (nrp == "") {
-                    return;
-                } else {
-                    $.ajax({
-                        url: "query/asistenkoor_insert.php",
-                        method: "POST",
-                        data: {nrp: nrp, periode: periode, praktikum: praktikum},
-                        dataType: "text",
-                        success: function (data) {
-                            //$('#data_koor').html(data);
-                            alert(data);
-                            koor_data();
-                        }
-                    });
-                }
-            }
-
-            $(document).on('click', '#btn_add', function () {
-                var pertemuan = $('#pertemuan').text();
-                var nrp = document.getElementById("nrp").value;
-                var tp = $('#tp').text();
-                var th = $('#th').text();
-                var ta = $('#ta').text();
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (pertemuan == '') {
-                    alert("Masukkan Pertemuan Terlebih Dahulu");
-                    return false;
-                }
-                if (tp == '') {
-                    alert("Masukkan Nilai TP Terlebih Dahulu");
-                    return false;
-                }
-                if (th == '') {
-                    alert("Masukkan Nilai TH Terlebih Dahulu");
-                    return false;
-                }
-                if (ta == '') {
-                    alert("Masukkan Nilai TA Terlebih Dahulu");
-                    return false;
-                }
-                $.ajax({
-                    url: "query/nh_insert.php",
-                    method: "POST",
-                    data: {pertemuan: pertemuan, tp: tp, th: th, ta: ta, periode: periode, praktikum: praktikum, nrp: nrp},
-                    dataType: "text",
-                    success: function (data)
-                    {
-                        alert(data);
-                        showNilai(nrp, periode, praktikum);
-                    }
-                })
-            });
-
-            $(document).on('click', '#btn_delete', function () {
-                var id = $(this).data("id5");
-                var nrp = document.getElementById("nrp").value;
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Are you sure you want to delete this?"))
-                {
-                    $.ajax({
-                        url: "query/nh_delete.php",
-                        method: "POST",
-                        data: {id: id},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            showNilai(nrp, periode, praktikum);
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete2', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah ada yakin ingin menghapus ?"))
-                {
-                    $.ajax({
-                        url: "query/asistendata_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_data();
-                            asisten_req();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete3', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ingin menghapus dari Request Asisten?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_delete4', function () {
-                var nrp = $(this).data("id1");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ingin menghapus dari Koordinator Asisten ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenkoor_delete.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            koor_data();
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#btn_update3', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_update.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-            
-            $(document).on('click', '#btn_update4', function () {
-                var nrp = $(this).data("id3");
-                var periode = document.getElementById("periode").value;
-                var praktikum = document.getElementById("praktikum").value;
-                if (confirm("Apakah anda yakin ?"))
-                {
-                    $.ajax({
-                        url: "query/asistenreq_update.php",
-                        method: "POST",
-                        data: {periode: periode, praktikum: praktikum, nrp: nrp},
-                        dataType: "text",
-                        success: function (data) {
-                            alert(data);
-                            asisten_req();
-                            asisten_data();
-                        }
-                    });
-                }
-            });
-
-            function edit_data(id, text, column_name) {
-                $.ajax({
-                    url: "query/nh_update.php",
-                    method: "POST",
-                    data: {id: id, text: text, column_name: column_name},
-                    dataType: "text",
-                    success: function (data) {
-                        alert(data);
-                    }
-                });
-            }
-            $(document).on('blur', '.pertemuan', function () {
-                var id = $(this).data("id1");
-                var pertemuan = $(this).text();
-                edit_data(id, pertemuan, "pertemuan");
-            });
-            $(document).on('blur', '.tp', function () {
-                var id = $(this).data("id2");
-                var tp = $(this).text();
-                edit_data(id, tp, "tp");
-            });
-            $(document).on('blur', '.th', function () {
-                var id = $(this).data("id3");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-            $(document).on('blur', '.ta', function () {
-                var id = $(this).data("id4");
-                var th = $(this).text();
-                edit_data(id, th, "th");
-            });
-        </script>
+        <script src="js/koordinator_lab.js"></script>
+        <!--<script src="js/modal.js"></script>-->
     </body>
-</html
+</html>
+
+<!-- Modal -->
+<div class="modal fade" id="OpenRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form onsubmit="" name="myForm" class="form-horizontal row-fluid" method="post" action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Informasi Pendaftaran</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Persyaratan yang harus dipenuhi : </p>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">CV</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="cv">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Transkrip Nilai</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="transkrip">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Foto</label>
+                                <div class="controls">
+                                    <select tabindex="1" data-placeholder="Select here.." class="form-control" id="foto">
+                                        <option value="N">Tidak</option>
+                                        <option value="Y">Ya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="basicinput">Catatan</label>
+                                <div class="controls">
+                                    <textarea class="form-control" rows="2" id="note" placeholder="Catatan"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal" name="btn_register" id="btn_register" class="btn btn-primary">Proses</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="UploadModul" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Modul Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="process/upload_modul.php" onsubmit="infoInsert()" class="form-horizontal row-fluid" enctype="multipart/form-data">
+                    <input type="hidden" name="praktikum" value="<?php echo $_GET['kategori']; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="basicinput">File Modul</label>
+                        <div class="controls">
+                            <input type="file" id="fileToUpload" class="" name="fileToUpload">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="UploadJobsheet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Jobsheet Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="process/upload_jobsheet.php" onsubmit="infoInsert()" class="form-horizontal row-fluid" enctype="multipart/form-data">
+                    <input type="hidden" name="praktikum" value="<?php echo $_GET['kategori']; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="basicinput">Pilih File</label>
+                        <div class="controls">
+                            <input type="file" id="fileToUpload" class="span8" name="fileToUpload">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="KoorPrak" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Koordinator Praktikum</h4>
+            </div>
+            <form method="post" action="process/koor_prak_tambah.php" onsubmit="infoInsert()" class="form-horizontal row-fluid">
+                <div class="modal-body">
+                    <input type="hidden" name="praktikum" value="<?php echo $_GET['kategori']; ?>">
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="basicinput">Masukkan Kode Dosen</label>
+                        <div class="controls">
+                            <input type="text" id="kode" class="form-control" name="kode">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" name="submit">Tambahkan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

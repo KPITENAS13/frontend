@@ -151,7 +151,7 @@ session_start();
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    include './query/tabel_praktikum2.php';
+                                                    include './query/tabel_praktikum3.php';
                                                     ?>
                                                 </tbody>
                                                 <tfoot>
@@ -190,25 +190,35 @@ session_start();
                                         </div>
 
                                         <div class="tab-pane" id="tab3">
-                                            <form class="form-inline" role="form" align="center">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta">
-                                                    <input type="hidden" id="periode" value="<?php
-                                                    if (isset($_GET['periode'])) {
-                                                        echo $_GET['periode'];
-                                                    }
-                                                    ?>">
-                                                    <input type="hidden" id="praktikum" value="<?php
-                                                    if (isset($_GET['kategori'])) {
-                                                        echo $_GET['kategori'];
-                                                    }
-                                                    ?>">
-                                                </div>
-                                                <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value)">Lihat</button>
-                                            </form>
+                                            <div id="presentase2"></div>
+                                            <hr>
+                                            <div class="form-inline" align="center">
+                                                <input type="text" class="form-control nrp" id="nrp" placeholder="NRP Peserta" style="width: 30%;">
+                                                <input type="hidden" id="periode" value="<?php echo $_GET['periode'] ?>">
+                                                <input type="hidden" id="praktikum" value="<?php echo $_GET['kategori'] ?>">
+                                                <button type="button" class="btn btn-default" name="users" onclick="showNilai(nrp.value, periode.value, praktikum.value)">Lihat</button>
+                                            </div>
                                             <br>
                                             <div id="mahasiswa"></div>
-                                            <div id="live_data" align="center"><b>Masukkan NRP peserta untuk melihat detail nilai...</b></div>
+                                            <div id="live_data" align="center">
+                                                <p>
+                                                    <b>Masukkan NRP peserta untuk melihat detail nilai...</b> <br>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped" style="width:80%;" id="tabel3">
+                                                        <tr>
+                                                            <th>Pertemuan</th>
+                                                            <th>Tugas Pendahuluan</th>
+                                                            <th>Tugas Harian</th>
+                                                            <th>Tugas Akhir</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5"> Data Tidak Ditemukan</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <div class="tab-pane" id="tab4">

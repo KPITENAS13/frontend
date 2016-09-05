@@ -116,24 +116,33 @@ if (isset($_POST['submit'])) {
         <script src="js/jquery-1.12.3.js"></script>
         <script src="datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="datatable/media/js/dataTables.bootstrap.min.js"></script>
+        <script src="js/tooltip.js"></script>
+        <script src="js/popover.js"></script>
         <script>
             $(document).ready(function () {
-            $('#table_id').DataTable();
+                $('[data-toggle="popover"]').popover();
             });
-                </script>
+        </script>
         <script>
-                function validateForm() {
-                    var x = document.forms["myForm"]["periode"].value;
-                    if (x == null || x == "") {
-                alert('Silakan Pilih Periode Terlebih Dahulu');                     return false;
+            $(document).ready(function () {
+                $('#table_id').DataTable();
+            });
+        </script>
+        <script>
+            function validateForm() {
+                var x = document.forms["myForm"]["periode"].value;
+                if (x == null || x == "") {
+                    alert('Silakan Pilih Periode Terlebih Dahulu');
+                    return false;
                 }
-                    var y = document.forms["myForm"]["praktikum"].value;
+                var y = document.forms["myForm"]["praktikum"].value;
                 if (y == null || y == "") {
-                alert('Silakan Pilih Nama Praktikum Terlebih Dahulu');                     return false;
+                    alert('Silakan Pilih Nama Praktikum Terlebih Dahulu');
+                    return false;
                 }
-                    var z = document.forms["myForm"]["kelas"].value;
-                    if (z == null || z == "") {
-            alert('Silakan Pilih Kelas Terlebih Dahulu');
+                var z = document.forms["myForm"]["kelas"].value;
+                if (z == null || z == "") {
+                    alert('Silakan Pilih Kelas Terlebih Dahulu');
                     return false;
                 }
 
@@ -159,9 +168,10 @@ if (isset($_POST['submit'])) {
                                 <div class="controls">
                                     <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
                                         <option value="">Select here..</option>
-                                        <option value="1516">2015/2016</option>
                                         <option value="1617">2016/2017</option>
                                         <option value="1718">2017/2018</option>
+                                        <option value="1819">2018/2019</option>
+                                        <option value="1920">2019/2020</option>
                                     </select>
                                 </div>
                             </div>
@@ -188,6 +198,7 @@ if (isset($_POST['submit'])) {
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
+                                        <option value="D">D</option>
                                     </select>
                                 </div>
                             </div>
@@ -198,6 +209,24 @@ if (isset($_POST['submit'])) {
                     <button type="submit" class="btn btn-primary">Proses</button>
                 </div>
             </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Absensi Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <?php include './query/tabel_absensi_user.php'; ?>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

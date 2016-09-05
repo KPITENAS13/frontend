@@ -88,11 +88,16 @@ while ($r2 = mysql_fetch_array($q2)) {
     }
     $output .= '</table>'
             . '</div>';
-    
+
     echo $output;
     echo '</div>';
     $no++;
 }
+
 echo '</div>'
  . '</div>';
+if(mysql_num_rows($q1) < 1){
+    echo '<h2><b> Anda Belum Pernah Terdaftar Sebagai Praktikan</b></h2>';
+}
+
 ?>

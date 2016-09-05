@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#tabel1').DataTable();
     $('#tabel2').DataTable();
     asisten_data();
+    praktikan_req();
     presentase();
 });
 
@@ -336,3 +337,74 @@ $(document).on('blur', '.pro', function () {
 });
 
 //------------------------------------------------------------------------- Nilai Praktikum
+
+
+//------------------------------------------------------------------------- Request Praktikan
+
+function praktikan_req() {
+    var periode = document.getElementById("periode").value;
+    var praktikum = document.getElementById("praktikum").value;
+    $.ajax({
+        url: "query/praktikanreq_select.php",
+        method: "POST",
+        data: {periode: periode, praktikum: praktikum},
+        dataType: "text",
+        success: function (data) {
+            $('#req_praktikan').html(data);
+        }
+    });
+}
+
+$(document).on('click', '#btn_delete3', function () {
+    var nrp = $(this).data("id3");
+    var periode = document.getElementById("periode").value;
+    var praktikum = document.getElementById("praktikum").value;
+    if (confirm("Apakah anda yakin ingin menghapus dari Request Praktikan?"))
+    {
+        $.ajax({
+            url: "query/praktikanreq_delete.php",
+            method: "POST",
+            data: {periode: periode, praktikum: praktikum, nrp: nrp},
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+                praktikan_req();
+            }
+        });
+    }
+});
+
+$(document).on('click', '#btn_update3', function () {
+    var nrp = $(this).data("id3");
+    var periode = document.getElementById("periode").value;
+    var praktikum = document.getElementById("praktikum").value;
+    var email = $(this).closest('td').parent().find('.email').text();
+    var nama = $(this).closest('td').parent().find('.nama').text();
+    var pesan = "Anda telah terdaftar sebagai Peserta Praktikum " + praktikum + " Periode " + periode;
+    var subjek = "Penerimaan Peserta Praktikum";
+    if (confirm("Apakah anda yakin ?"))
+    {
+        $.ajax({
+            url: "query/praktikanreq_update.php",
+            method: "POST",
+            data: {periode: periode, praktikum: praktikum, nrp: nrp},
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+                praktikan_req();
+            }
+        });
+        $.ajax({
+            url: "admin/admin/PHPMailer/send_mail.php",
+            method: "POST",
+            data: {email:email, nama:nama, isi:pesan, subjek:subjek},
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+});
+
+//------------------------------------------------------------------------- Request Praktikan
+

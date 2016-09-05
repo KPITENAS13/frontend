@@ -217,7 +217,7 @@ session_start();
                 <div class="row">
                     <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap wow fadeInDown" data-wow-delay="300ms">
-                            <img class="img-responsive" src="images/portfolio/recent/item1.png" alt="">
+                            <img class="img-responsive" src="images/lab/lab_daskom.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Lab DasKom</a></h3>
@@ -234,7 +234,7 @@ session_start();
 
                     <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap wow fadeInDown" data-wow-delay="600ms">
-                            <img class="img-responsive" src="images/portfolio/recent/item2.png" alt="">
+                            <img class="img-responsive" src="images/lab/lab_multimedia.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Lab Multimedia</a></h3>
@@ -243,7 +243,7 @@ session_start();
                                         - Pemrograman Robot Cerdas <br>
                                         - Jaringan Syaraf Tiruan
                                     </p>
-                                    <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
+                                    <a class="preview" href="images/lab/lab_jarkom.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Mulai Streaming</a>
                                 </div> 
                             </div>
                         </div>          
@@ -251,7 +251,7 @@ session_start();
 
                     <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap wow fadeInDown" data-wow-delay="900ms">
-                            <img class="img-responsive" src="images/portfolio/recent/item3.png" alt="">
+                            <img class="img-responsive" src="images/lab/lab_jarkom.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Lab JarKom</a></h3>
@@ -268,7 +268,7 @@ session_start();
 
                     <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap wow fadeInDown" data-wow-delay="1200ms">
-                            <img class="img-responsive" src="images/portfolio/recent/item4.png" alt="">
+                            <img class="img-responsive" src="images/lab/lab_daskom.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Lab BasDat</a></h3>

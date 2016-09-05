@@ -9,6 +9,7 @@ $output .= ''
         . '         <tr>'
         . '             <th>NRP</th>'
         . '             <th>Nama</th>'
+        . '             <th>Email</th>'
         . '             <th>Aksi</th>'
         . '         </tr>';
 if(mysqli_num_rows($result) > 0){
@@ -16,6 +17,7 @@ if(mysqli_num_rows($result) > 0){
         $output .= '<tr>'
                 . ' <td class="nrp_asisten" data-id1="'.$row["id"].'" >'.$row["nrp"].'</td>'
                 . ' <td class="nama" data-id2="'.$row["id"].'" >'.$row["nama"].'</td>'
+                . ' <td class="email" data-id3="'.$row["id"].'" >'.$row["email"].'</td>'
                 . ' <td><button class="btn btn-danger btn-xs" name="btn_delete2" id="btn_delete2" data-id3="'.$row["nrp"].'"><span class="glyphicon glyphicon-remove"></span> Hapus</button></td>'
                 . '</tr>';
     }

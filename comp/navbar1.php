@@ -18,16 +18,16 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Lab <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="info_jadwal_lab.php">Jadwal Penggunaan Lab</a></li>
-                        <li><a href="info_jadwal_praktikum.php#">Jadwal Praktikum</a></li>
-                        <li><a href="info_topik_TA.php">Topik TA</a></li>
                         <li><a href="monitoring.php">Monitoring</a></li>
+                        <li><a href="info_topik_TA.php">Topik TA</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seputar Praktikum <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="warning();">Daftar Nilai</a></li>
                         <li><a href="absensi.php">Absensi</a></li>
+                        <li><a href="#" onclick="warning();">Daftar Nilai</a></li>
+                        <li><a href="info_jadwal_praktikum.php#">Jadwal Praktikum</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

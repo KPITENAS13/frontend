@@ -122,40 +122,10 @@ while ($r = mysql_fetch_array($q)) {
                                 <div class="parrent media-body">
                                     <div class="tab-content">
                                         <div class="tab-pane" id="tab1">
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel1"
-                                                   width="100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>
-                                                            NRP
-                                                        </th>
-                                                        <th>
-                                                            Nama
-                                                        </th>
-                                                        <th>
-                                                            Aksi
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    include './query/tabel_request_praktikan.php';
-                                                    ?>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>
-                                                            NRP
-                                                        </th>
-                                                        <th>
-                                                            Nama
-                                                        </th>
-                                                        <th>
-                                                            Aksi
-                                                        </th>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
+                                            <button type="button" class="btn btn-default" style="margin-bottom: 2%; float: left;" onclick="praktikan_req()"
+                                                    ><span class="glyphicon glyphicon-refresh"></span> Refresh
+                                            </button>
+                                            <div id="req_praktikan" align="center"></div>
                                         </div>
 
                                         <?php

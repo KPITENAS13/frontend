@@ -69,26 +69,61 @@ $r2 = mysql_fetch_array($h2);
 <!-- Modal -->
 <div class="modal fade" id="KoorLabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="alert alert-warning alert-dismissable">
-            <h4 align="center">Verifikasi Halaman Koordinator Laboratorium</h4>
-            <p align="center"><br>Laboratorium mana yang ingin anda akses ?<br></p>
-            <br>
-            <div align="center">
-                <div class="btn-group-vertical" style="width: 50%;">
-                    <?php
-                    $query = "SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' AND kode=$_SESSION[kode]";
-                    $hasil = mysql_query($query);
-                    while ($row = mysql_fetch_array($hasil)) {
-                        $praktikum = $row['praktikum'];
-                        $periode = $row['periode'];
-                        echo "<a href='koordinator_lab.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $row['praktikum'] . " " . $row['periode'] . "</a>";
-                    }
-                    ?>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Informasi Praktikum</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="control-label" for="basicinput">Praktikum</label>
+                            <div class="controls">
+                                <select tabindex="1" data-placeholder="Select here.." class="form-control" name="praktikum" id="pra">
+                                    <option value="">Select here..</option>
+                                    <option value="PEMDAS">Pemrograman Dasar</option>
+                                    <option value="ORKOM">Organisasi & Arsitektur Komputer</option>
+                                    <option value="PRC">Pemrograman Robot Cerdas</option>
+                                    <option value="JST">Jaringan Syaraf Tiruan</option>
+                                    <option value="JARKOM">Jaringan Komputer</option>
+                                    <option value="REKWEB">Rekayasa Web</option>
+                                    <option value="BASDAT">Basis Data</option>
+                                    <option value="PBD">Pemrograman Basis Data</option>
+                                    <option value="PBO">Pemrograman Berorientasi Objek</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="basicinput">Periode</label>
+                            <div class="controls">
+                                <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
+                                    <option value="">Select here..</option>
+                                    <option value="2016/2017">2016/2017</option>
+                                    <option value="2017/2018">2017/2018</option>
+                                    <option value="2018/2019">2018/2019</option>
+                                    <option value="2019/2020">2019/2020</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="gotopage();">Proses</button>
+            </div>
+        </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<script>
+    function gotopage(){
+        var praktikum = document.getElementById("pra").value;
+        var periode = document.getElementById("per").value;
+        var path = "koordinator_lab.php?kategori="+praktikum+"&&periode="+periode;
+        window.location.href=path;
+    }
+</script>
+
 
 <!-- Modal -->
 <div class="modal fade" id="KoorPrakModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

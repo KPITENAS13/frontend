@@ -215,32 +215,19 @@ session_start();
 <!-- Modal -->
 <div class="modal fade" id="DaftarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <form name="formlogin" method="post" action="process/daftar_praktikan_proses.php" onsubmit="return validasi(this)">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Informasi Praktikum</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="control-label" for="basicinput">Periode</label>
-                        <div class="controls">
-                            <select tabindex="1" data-placeholder="Select here.." class="form-control" name="periode" id="per">
-                                <option value="">Select here..</option>
-                                <option value="2016/2017">2016/2017</option>
-                                <option value="2017/2018">2017/2018</option>
-                                <option value="2018/2019">2017/2018</option>
-                                <option value="2019/2020">2017/2018</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Daftar</button>
-                </div>
+        <div class="alert alert-warning alert-dismissable">
+            <form name="formlogin" method="post" action="process/daftar_praktikan_proses.php">
+                <h4 align="center">Verifikasi Pendaftaran Praktikumz Laboratorium</h4>
+                <p align="center"><br>Apakah anda yakin ingin mendaftar sebagai praktikan ?<br></p>
+                <p align="center">
+                    <br>
+                    <input type="hidden" name="periode" value="<?php echo $_GET['periode']; ?>">
+                    <input type="hidden" name="kategori" value="<?php echo $_GET['kategori']; ?>">
+                    <button type="submit" name="submit" class="btn btn-success" style="width: 30%;">Proses</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger" aria-hidden="true" style="width: 30%;">Batal</button>
+                </p>
             </form>
-        </div><!-- /.modal-content -->
+        </div>
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 

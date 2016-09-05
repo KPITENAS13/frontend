@@ -54,7 +54,7 @@ session_start();
                 <div class="row contact-wrap">
                     <div class="col-sm-12 wow fadeInDown" data-wow-delay="300ms">
                         <div class="tab-wrap">
-                            <div class="media" align="center">
+                            <div class="media" align="center" style="min-height: 30vh;">
                                 <?php include './query/tabel_daftar_nilai.php'; ?>
                             </div> <!--/.media-->     
                         </div><!--/.tab-wrap--> 
