@@ -1,8 +1,8 @@
 <?php
 include 'koneksi.php';
-$q1 = mysql_query("SELECT * FROM asisten WHERE approve='Y' AND nrp=$_SESSION[kode]");
-$r1 = mysql_fetch_array($q1);
-$q2 = mysql_query("SELECT count(*) as jml FROM pemberitahuan WHERE status='D' AND user='$_SESSION[kode]'");
+$nrp = '';
+$nrp = $_SESSION['kode'];
+$q2 = mysql_query("SELECT count(*) as jml FROM pemberitahuan WHERE status='D' AND user='$nrp'");
 $r2 = mysql_fetch_array($q2);
 ?>
 <!-- Navbar User (Mahasiswa)-->
@@ -64,7 +64,9 @@ $r2 = mysql_fetch_array($q2);
                             </a>
                         </li>
                         <?php
-                        if (empty($r1)) {
+                        $q1 = mysql_query("SELECT * FROM asisten WHERE approve='Y' AND nrp=$nrp");
+                        $r1 = mysql_fetch_array($q1);
+                        if (!empty($r1)) {
                             echo "<li><a href='#' data-toggle='modal' data-target='#AsistenModal'>Asisten Lab</a></li>";
                         }
                         ?>

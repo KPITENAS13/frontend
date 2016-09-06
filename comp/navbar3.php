@@ -78,7 +78,6 @@ $r3 = mysql_fetch_array($h3);
                         ?>
                         <li><a href="#" data-toggle="modal" data-target="#PeminjamanModal">Peminjaman</a></li>
                         <li><a href="#">Profil</a></li>
-                        <li><a href="#">Pemberitahuan</a></li>
                         <li><a href="process/logout_proses.php">Logout</a></li>
                     </ul>
                 </li>                

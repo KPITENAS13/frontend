@@ -83,8 +83,8 @@ session_start();
                             <div class="media">
                                 <div class="parrent pull-left">
                                     <ul class="nav nav-tabs nav-stacked">
-                                        <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Request Asisten</a></li>
-                                        <li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Nilai Praktikan</a></li>
+                                        <li class="active"><a href="#tab1" data-toggle="tab" class="analistic-01">Request Asisten</a></li>
+                                        <li class=""><a href="#tab2" data-toggle="tab" class="analistic-02">Daftar Nilai Praktikan</a></li>
                                         <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Nilai Harian</a></li>
                                         <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Daftar Asisten</a></li>
                                         <li class=""><a href="#tab5" data-toggle="tab" class="tehnical">Modul & Jobsheet</a></li>
@@ -93,7 +93,7 @@ session_start();
 
                                 <div class="parrent media-body">
                                     <div class="tab-content">
-                                        <div class="tab-pane" id="tab1" align="center">
+                                        <div class="tab-pane active in" id="tab1" align="center">
                                             <button type="button" class="btn btn-default" style="margin-bottom: 2%; float: left;" onclick="asisten_req()"
                                                     ><span class="glyphicon glyphicon-refresh"></span> Refresh
                                             </button>
@@ -104,7 +104,7 @@ session_start();
                                             <div id="req_asisten" align="center"></div>
                                         </div>
 
-                                        <div class="tab-pane active in" id="tab2">
+                                        <div class="tab-pane " id="tab2">
                                             <b>Presentase Nilai</b>
                                             <div id="presentase">
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" id="tabel5" width="100%">

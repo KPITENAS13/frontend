@@ -7,6 +7,9 @@ $periode = $_POST["periode"];
 $connect = mysqli_connect("localhost", "root", "", "inventaris");
 $sql = "UPDATE praktikum SET approve='Y' WHERE nrp=" . $nrp . "  AND prak='" . $praktikum . "' AND periode='" . $periode . "'";
 if (mysqli_query($connect, $sql)) {
+    $tanggal = date("Y-m-d h:i:s", time() + 18000);
+    $isi = "Selamat ! Anda telah terdaftar menjadi praktikan Laboratorium Praktikum $praktikum periode $periode";
+    mysqli_query($connect,"insert into pemberitahuan (tanggal,isi,user) values ('$tanggal', '$isi' , '$nrp')");
     echo 'Data telah dimasukkan kedalam Daftar Nilai Praktikan';
 }
 ?>  

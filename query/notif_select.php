@@ -21,6 +21,7 @@ if (mysqli_num_rows($result) > 0) {
             </div>";
         }
     }
+    mysqli_query($connect,"update pemberitahuan set status='R' where user='$nrp'");
 } else {
     $output .= "
             <div class='alert alert-warning alert-dismissable'>
@@ -28,5 +29,4 @@ if (mysqli_num_rows($result) > 0) {
             </div>";
 }
 echo $output;
-mysqli_query($connect,"update pemberitahuan set status='R' where user='$nrp'");
 ?>

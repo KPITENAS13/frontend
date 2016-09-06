@@ -7,9 +7,9 @@ $periode = $_POST['periode'];
 $nrp = $_SESSION['kode'];
 
 $per_temp = explode("/", $periode);
-$newperiode = $per_temp[0].$per_temp[1];
+$newperiode = $per_temp[0] . $per_temp[1];
 $tanggal = date("Y/m/d");
-$nama_file = "Persyaratan_" . $praktikum  . "_" . $newperiode . "_" . $nrp . ".pdf";
+$nama_file = "Persyaratan_" . $praktikum . "_" . $newperiode . "_" . $nrp . ".pdf";
 $target_dir = "../admin/file/";
 $target_file = $target_dir . $nama_file;
 
@@ -18,6 +18,9 @@ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     mysql_query("INSERT INTO file 
         (nama_file,tanggal_upload,kategori,path)VALUES 
         ('$nama_file','$tanggal','Persyaratan','$target_file')");
+    $tanggal = date("Y-m-d h:i:s", time() + 18000);
+    $isi = "Permintaan anda menjadi asisten Laboratorium Praktikum $praktikum periode $periode sedang diproses";
+    mysql_query("insert into pemberitahuan (tanggal,isi,user) values ('$tanggal', '$isi' , '$nrp')");
     echo"
     <script>
             alert('Permintaan anda sedang diproses. Mohon tunggu konfirmasi selanjutnya !');

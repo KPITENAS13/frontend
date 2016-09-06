@@ -3,13 +3,16 @@
 session_start();
 include "../koneksi.php";
 
-if(isset($_POST['kategori'])) {
+if (isset($_POST['kategori'])) {
     $praktikum = $_POST['kategori'];
     $periode = $_POST['periode'];
     $nrp = $_SESSION['kode'];
 }
 
 mysql_query("INSERT INTO praktikum (nrp,prak,periode,approve) VALUES ($nrp,'$praktikum','$periode','R')");
+$tanggal = date("Y-m-d h:i:s", time()+18000);
+$isi = "Permintaan anda menjadi praktikan Laboratorium Praktikum $praktikum periode $periode sedang diproses";
+mysql_query("insert into pemberitahuan (tanggal,isi,user) values ('$tanggal', '$isi' , '$nrp')");
 echo"
     <script>
             alert('Permintaan anda sedang diproses. Mohon tunggu konfirmasi selanjutnya !');
