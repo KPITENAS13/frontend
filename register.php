@@ -67,6 +67,16 @@
                 }
             }
         </script>
+        <script type="text/javascript">
+            function PreviewImage() {
+                var oFReader = new FileReader();
+                oFReader.readAsDataURL(document.getElementById("fileToUpload").files[0]);
+                oFReader.onload = function (oFREvent)
+                {
+                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                };
+            };
+        </script>
     </head><!--/head-->
 
     <body>
@@ -93,8 +103,8 @@
                             <div class="form-group">
                                 <label>Foto *</label><br>
                                 <p>Ukuran Pas Foto Harus Kotak (Mis. 256 X 256 Pixel)</p>
-                                <img src="images/default.jpg" class="img-thumbnail" alt="Responsive Image" style="width: 256px;height: 256px; margin-bottom: 10px">
-                                <input type="file" id="fileToUpload" name="fileToUpload"  required="required">
+                                <img id="uploadPreview" src="images/default.jpg" class="img-thumbnail" alt="Responsive Image" style="width: 256px;height: 256px; margin-bottom: 10px">
+                                <input type="file" id="fileToUpload" name="fileToUpload" onchange="PreviewImage()"  required="required">
                             </div>
                             <div class="form-group">
                                 <label>ID *</label>
