@@ -111,13 +111,14 @@ $_SESSION['pesan'] = '';
     </ul>
     <!--/.widget-nav-->
     <ul class="widget widget-menu unstyled">
+        <li><a href="praktikum.php"><i class="menu-icon icon-lightbulb"></i> Koordinator Laboratorium </a></li>
         <li><a href="admin_info_jadwal_lab.php"><i class="menu-icon icon-time"></i> Jadwal Penggunaan Lab </a></li>
         <li><a href="admin_info_jadwal_praktikum.php"><i class="menu-icon icon-table"></i> Jadwal Praktikum </a></li>
         <li><a href="admin_info_topik_TA.php"><i class="menu-icon icon-list-alt"></i> Topik TA </a></li>
     </ul>
     <!--/.widget-nav-->
     <ul class="widget widget-menu unstyled">
-        <li><a href="admin_info_daftar_nilai.php"><i class="menu-icon icon-bar-chart"></i> Daftar Nilai Lab </a></li>
+        <li><a href="monitoring.php"><i class="menu-icon icon-laptop"></i> Monitoring </a></li>
         <li><a href="admin_absensi.php"><i class="menu-icon icon-book"></i> Absensi </a></li>
     </ul>
     <!--/.widget-nav-->
@@ -144,11 +145,4 @@ $_SESSION['pesan'] = '';
         </li>
     </ul>
     <!--/.widget-nav-->
-    <ul class="widget widget-menu unstyled">
-        <li><a href="monitoring.php"><i class="menu-icon icon-laptop"></i> Monitoring </a></li>
-    </ul>
-    <!--/.widget-nav-->
-    <ul class="widget widget-menu unstyled">
-        <li><a href="praktikum.php"><i class="menu-icon icon-lightbulb"></i> Praktikum </a></li>
-    </ul>
 </div>
