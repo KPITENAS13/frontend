@@ -17,7 +17,6 @@ session_start();
 
         <?php
         include "koneksi/koneksi.php";
-        session_start();
         //        menampilkan pesan jika ada pesan
         if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
             echo '<div class="pesan" align="center">' . $_SESSION['pesan'] . '</div>';

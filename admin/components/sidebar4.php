@@ -129,7 +129,6 @@ $_SESSION['pesan'] = '';
             <ul id="togglePages4" class="collapse unstyled">
                 <li><a href="admin_arsip_absensi.php"><i class="icon-book"></i> Absen Asisten </a></li>
                 <li><a href="admin_arsip_sertifikat.php"><i class="icon-star"></i> Sertifikat </a></li>
-                <li><a href="admin_arsip_surat.php"><i class="icon-legal"></i> Surat Keluar </a></li>
             </ul>
         </li>
         <li><a class="collapsed" data-toggle="collapse" href="#togglePages2"><i class="menu-icon icon-suitcase">

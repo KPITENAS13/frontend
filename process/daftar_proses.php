@@ -60,7 +60,7 @@ if ($Lid == 9){     // Untuk Mahasiswa
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             include "../koneksi.php";
             mysql_query("INSERT INTO mahasiswa (id,pin,email,nama,jk,tgl_lahir,no_telp,alamat,foto) VALUES($id,$pass,'$_POST[email]','$_POST[nama]','$_POST[jk]','$_POST[tgl]','$_POST[telp]','$_POST[alamat]','$nama_file')");
-            $tanggal =  date("Y-m-d h:i:s", time());
+            $tanggal =  date("Y-m-d h:i:s", time()-18000);
             $isi = 'Anda telah terdaftar sebagai user pada sistem Laboratorium Teknik Informatika ITENAS';
             mysql_query("insert into pemberitahuan (tanggal,isi,user) values ('$tanggal', '$isi' , '$id')");
             echo"
