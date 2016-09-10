@@ -83,7 +83,7 @@ session_start();
                                     }
 
                                     echo "
-                                    <form class=form-horizontal row-fluid name=frm action=query/PenelitianApprove.php method=post>
+                                    <form name='formApprove' class=form-horizontal row-fluid name=frm action=query/PenelitianApprove.php method=post>
                                         <div class=control-group>
                                             <label class=control-label for=basicinput>Kode Pinjam</label>
                                             <div class=controls>
@@ -951,6 +951,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -1041,5 +1042,113 @@ session_start();
                 document.frm.txt10.value = text;
             }
         </script>
+    
+        <script src="js/jquery.webcamqrcode.min.js"></script>
+        <script src="js/jquery.webcamqrcode.js"></script>
+        
+        <script>
+            (function($){
+                    $('#btn_qrcode').click(function(){
+                            $('#btnProses').hide();
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#btnProses').show();
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPraktikum();
+                                                    kirim();
+                                    }
+                            });
+                    });
+            })(jQuery);
+        </script>
+        
+        <script type="text/javascript">
+            /* Buat variabel global */
+            var myAjax;
+
+            /* Koneksi ajax ke web browser */
+            function ajax() {
+                    if(window.XMLHttpRequest) {
+                            return new XMLHttpRequest();
+                    }
+
+                    if(window.ActiveXObject) {
+                            return new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    return null;
+            }
+
+            function kirim() {
+            /* Mengambil nilai yang terdapat pada span dengan id qrcode_result*/
+            serial = document.getElementById("qrcode_result").innerHTML;
+
+                    if (serial == "none"){
+                            
+                    } else {
+
+                            /* Mengirim nilai ke ambildata.php dengan metode get */
+                            /* Dan memeriksa hasil nilai balik pada fungsi prosesKirim */
+                            myAjax = ajax();
+                            myAjax.onreadystatechange = prosesKirim;
+                            myAjax.open("GET", "query/ambilDataQRCode.php?serial="+serial, true);
+                            myAjax.send(null);
+                    }
+            }
+
+            /* Fungsi untuk mengetahui hasil nilai balik dari proses */
+            /* Jika hasil berupa nilai 4 yakni proses sukses */
+            function prosesKirim() {
+                if(myAjax.readyState == 4) {
+                        $('#live_data').html(myAjax.responseText);
+                }
+            }
+            
+            function AlatPraktikum(){
+                var kdpinjam = document.formApprove.inputKode_pinjam.value;
+                var idpeminjam = document.formApprove.inputId_peminjam.value;
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                
+                var link1 = "query/PenelitianAlat1.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                
+                document.getElementById("idPraktikum").href = link1;
+                
+            }
+        </script>
     </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="QRCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="myForm" class="form-horizontal row-fluid" method="post" action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Scan QR Code</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div align="center">
+                                <h4>Scan disini</h4>
+                                
+                                <div style="margin-left: 25px;width: 250px; height: 250px;" id="qrcodebox"></div>
+                                
+                                <h5>Serial Number :</h5>
+                                <h2><span id="qrcode_result">none</span></h2>
+                                <br>
+                                <div class="table-responsive">
+                                    <div id="live_data"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="idPraktikum" href="#"><button id="btnProses" class="btn btn-inverse" disabled>Proses</button></a>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

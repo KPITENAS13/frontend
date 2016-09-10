@@ -78,7 +78,7 @@ session_start();
 
 
                                     echo "
-                                    <form class=form-horizontal row-fluid name=frm action=query/PraktikumApprove.php method=post>
+                                    <form name='formApprove' class=form-horizontal row-fluid name=frm action=query/PraktikumApprove.php method=post>
                                         <div class=control-group>
                                             <label class=control-label for=basicinput>Kode Pinjam</label>
                                             <div class=controls>
@@ -951,7 +951,7 @@ session_start();
                                                 <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
                                         }?>
                                                 <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=<?php echo $r[kode_pinjam]?>&id_peminjam=<?php echo $r[id_peminjam]?>&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
-                                                <button id='btn_qrcode' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal' onClick="AlatPraktikum('<?php echo $r[kode_pinjam]?>', '<?php echo $r[id_peminjam]?>')"><i class=icon-qrcode name=btn></i></button>
+                                                <button id='btn_qrcode' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal' onClick=""><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                     <?php
@@ -1052,9 +1052,13 @@ session_start();
         <script>
             (function($){
                     $('#btn_qrcode').click(function(){
+                            $('#btnProses').hide();
                             $('#qrcodebox').WebcamQRCode({
                                     onQRCodeDecode: function( p_data ){
+                                                    $('#btnProses').show();
                                                     $('#qrcode_result').html( p_data );
+                                                    AlatPraktikum();
+                                                    kirim();
                                     }
                             });
                     });
@@ -1103,9 +1107,12 @@ session_start();
                 }
             }
             
-            function AlatPraktikum(kdpinjam, idpeminjam){
+            function AlatPraktikum(){
+                var kdpinjam = document.formApprove.inputKode_pinjam.value;
+                var idpeminjam = document.formApprove.inputId_peminjam.value;
                 var serialnum = document.getElementById("qrcode_result").innerHTML;
-                var link1 = "query/PraktikumAlat1.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&id_peminjam=" + idpeminjam + "&tipe_pinjam=Praktikum";
+                
+                var link1 = "query/PraktikumAlat1.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Praktikum&id_peminjam=" + idpeminjam;
                 
                 document.getElementById("idPraktikum").href = link1;
                 
@@ -1128,12 +1135,11 @@ session_start();
                         <div class="col-sm-10 col-sm-offset-1">
                             <div align="center">
                                 <h4>Scan disini</h4>
-                                <p>*Sorot serial number untuk mengetahui detail barang</p>
                                 
                                 <div style="margin-left: 25px;width: 250px; height: 250px;" id="qrcodebox"></div>
                                 
                                 <h5>Serial Number :</h5>
-                                <h2><span id="qrcode_result" onMouseOver="kirim()">LAI-RP01</span></h2>
+                                <h2><span id="qrcode_result">none</span></h2>
                                 <br>
                                 <div class="table-responsive">
                                     <div id="live_data"></div>
@@ -1143,7 +1149,7 @@ session_start();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a id="idPraktikum" href="#"><button class="btn btn-primary" >Proses</button></a>
+                    <a id="idPraktikum" href="#"><button id="btnProses" class="btn btn-primary" disabled>Proses</button></a>
                 </div>
             </form>
         </div><!-- /.modal-content -->
