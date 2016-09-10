@@ -12,10 +12,13 @@ $sql = "DELETE FROM asisten WHERE nrp=" . $nrp . "  AND praktikum='" . $praktiku
 if (mysqli_query($connect, $sql)) {
     echo 'Data telah dihapus.';
     $sql2 = "SELECT path FROM file WHERE nama_file='$nama_file'";
-    $result = mysqli_query($connect,$sql2);
+    $result = mysqli_query($connect, $sql2);
     $row = mysqli_fetch_array($result);
     $path = $row['path'];
     unlink($path);
-    mysqli_query($connect,"DELETE FROM file WHERE nama_file='$nama_file'");
+    mysqli_query($connect, "DELETE FROM file WHERE nama_file='$nama_file'");
+    $tanggal = date("Y-m-d h:i:s", time() + 18000);
+    $isi = "Maaf ! Permintaan anda menjadi asisten Laboratorium Praktikum $praktikum periode $periode telah ditolak";
+    mysqli_query($connect, "insert into pemberitahuan (tanggal,isi,user) values ('$tanggal', '$isi' , '$nrp')");
 }
 ?>

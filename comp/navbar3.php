@@ -6,6 +6,8 @@ $h1 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Laboratorium' A
 $r1 = mysql_fetch_array($h1);
 $h2 = mysql_query("SELECT * FROM koordinator WHERE jabatan='Koor Praktikum' AND kode=$nrp");
 $r2 = mysql_fetch_array($h2);
+$h3 = mysql_query("SELECT count(*) as jml FROM pemberitahuan WHERE status='D' AND user='$_SESSION[kode]'");
+$r3 = mysql_fetch_array($h3);
 ?>
 <!-- Navbar User (Dosen)-->
 <nav class="navbar navbar-inverse" role="banner">
@@ -43,8 +45,27 @@ $r2 = mysql_fetch_array($h2);
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?> <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <?php
+                        if ($r3['jml'] != 0) {
+                            echo "" . $_SESSION['username'] . "  (" . $r3['jml'] . ")";
+                        } else {
+                            echo "" . $_SESSION['username'];
+                        }
+                        ?> 
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                     <ul class="dropdown-menu">
+                        <li>
+                            <a href="pemberitahuan.php">
+                                Notifikasi
+                                <?php
+                                if ($r3['jml'] != 0) {
+                                    echo "<span class='badge'>" . $r3['jml'] . "</span>";
+                                }
+                                ?>
+                            </a>
+                        </li>
                         <?php
                         if (!empty($r1)) {
                             echo "<li><a href='#' data-toggle='modal' data-target='#KoorLabModal'>Koordinator Laboratorium</a></li>";
@@ -57,7 +78,6 @@ $r2 = mysql_fetch_array($h2);
                         ?>
                         <li><a href="#" data-toggle="modal" data-target="#PeminjamanModal">Peminjaman</a></li>
                         <li><a href="#">Profil</a></li>
-                        <li><a href="#">Pemberitahuan</a></li>
                         <li><a href="process/logout_proses.php">Logout</a></li>
                     </ul>
                 </li>                

@@ -1,7 +1,9 @@
 <?php
 include 'koneksi.php';
-$ha = mysql_query("SELECT * FROM asisten WHERE approve='Y' AND nrp=$_SESSION[kode]");
-$ro = mysql_fetch_array($ha);
+$nrp = '';
+$nrp = $_SESSION['kode'];
+$q2 = mysql_query("SELECT count(*) as jml FROM pemberitahuan WHERE status='D' AND user='$nrp'");
+$r2 = mysql_fetch_array($q2);
 ?>
 <!-- Navbar User (Mahasiswa)-->
 <nav class="navbar navbar-inverse" role="banner">
@@ -40,16 +42,36 @@ $ro = mysql_fetch_array($ha);
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?> <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <?php
-                        if (!empty($ro)) {
+                        if ($r2['jml'] != 0) {
+                            echo "" . $_SESSION['username'] . "  (" . $r2['jml'] . ")";
+                        } else {
+                            echo "" . $_SESSION['username'];
+                        }
+                        ?> 
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="pemberitahuan.php">
+                                Notifikasi
+                                <?php
+                                if ($r2['jml'] != 0) {
+                                    echo "<span class='badge'>" . $r2['jml'] . "</span>";
+                                }
+                                ?>
+                            </a>
+                        </li>
+                        <?php
+                        $q1 = mysql_query("SELECT * FROM asisten WHERE approve='Y' AND nrp=$nrp");
+                        $r1 = mysql_fetch_array($q1);
+                        if (!empty($r1)) {
                             echo "<li><a href='#' data-toggle='modal' data-target='#AsistenModal'>Asisten Lab</a></li>";
                         }
                         ?>
                         <li><a href="#" data-toggle="modal" data-target="#PeminjamanModal">Peminjaman</a></li>
                         <li><a href="#">Profil</a></li>
-                        <li><a href="#">Pemberitahuan</a></li>
                         <li><a href="process/logout_proses.php">Logout</a></li>
                     </ul>
                 </li>                
@@ -73,7 +95,7 @@ $ro = mysql_fetch_array($ha);
                     $hasil = mysql_query($query);
                     while ($row = mysql_fetch_array($hasil)) {
                         $praktikum = $row['praktikum'];
-                        $periode= $row['periode'];
+                        $periode = $row['periode'];
                         echo "<a href='asisten.php?kategori=$praktikum&&periode=$periode' class='btn btn-default'>" . $praktikum . " " . $periode . "</a>";
                     }
                     ?>
