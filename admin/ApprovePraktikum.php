@@ -13,11 +13,13 @@ session_start();
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
+        
+        <!------------------------------------------------------------------------------------------>
+        
     </head>
     <body>
         <?php
         include "koneksi/koneksi.php";
-        session_start();
         //        menampilkan pesan jika ada pesan
         if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
             echo '<div class="pesan" align="center">' . $_SESSION['pesan'] . '</div>';
@@ -947,13 +949,14 @@ session_start();
                                         } else {
                                             echo"
                                                 <input type=text id=basicinput placeholder='$a1' name=txt1 class=span5 required> ";
-                                        }
-                                        echo"
-                                                <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                        }?>
+                                                <a href=PeminjamanAlat1Praktikum.php?kode_pinjam=<?php echo $r[kode_pinjam]?>&id_peminjam=<?php echo $r[id_peminjam]?>&tipe_pinjam=Praktikum><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal' onClick="AlatPraktikum('<?php echo $r[kode_pinjam]?>', '<?php echo $r[id_peminjam]?>')"><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
-                                            ";
-                                    }
+                                    <?php
+                                    
+                                        }
 
                                     echo"
                                         </div>
@@ -982,13 +985,13 @@ session_start();
                 <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
             </div>
         </div>
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
+        <script src="scripts/jquery-1.9.1.min.js" ></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" ></script>
+        <script src="bootstrap/js/bootstrap.min.js" ></script>
+        <script src="scripts/flot/jquery.flot.js" ></script>
+        <script src="scripts/flot/jquery.flot.resize.js" ></script>
+        <script src="scripts/datatables/jquery.dataTables.js" ></script>
+        <script src="scripts/common.js"></script>
         <script src="scripts/jquery.min.js"></script>
         <script>
             function Alat1() {
@@ -1042,5 +1045,107 @@ session_start();
                 document.frm.txt10.value = text;
             }
         </script>
+        
+        <script src="js/jquery.webcamqrcode.min.js"></script>
+        <script src="js/jquery.webcamqrcode.js"></script>
+        
+        <script>
+            (function($){
+                    $('#btn_qrcode').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                    }
+                            });
+                    });
+            })(jQuery);
+        </script>
+        
+        <script type="text/javascript">
+            /* Buat variabel global */
+            var myAjax;
+
+            /* Koneksi ajax ke web browser */
+            function ajax() {
+                    if(window.XMLHttpRequest) {
+                            return new XMLHttpRequest();
+                    }
+
+                    if(window.ActiveXObject) {
+                            return new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    return null;
+            }
+
+            function kirim() {
+            /* Mengambil nilai yang terdapat pada span dengan id qrcode_result*/
+            serial = document.getElementById("qrcode_result").innerHTML;
+
+                    if (serial == "none"){
+                            
+                    } else {
+
+                            /* Mengirim nilai ke ambildata.php dengan metode get */
+                            /* Dan memeriksa hasil nilai balik pada fungsi prosesKirim */
+                            myAjax = ajax();
+                            myAjax.onreadystatechange = prosesKirim;
+                            myAjax.open("GET", "query/ambilDataQRCode.php?serial="+serial, true);
+                            myAjax.send(null);
+                    }
+            }
+
+            /* Fungsi untuk mengetahui hasil nilai balik dari proses */
+            /* Jika hasil berupa nilai 4 yakni proses sukses */
+            function prosesKirim() {
+                if(myAjax.readyState == 4) {
+                        $('#live_data').html(myAjax.responseText);
+                }
+            }
+            
+            function AlatPraktikum(kdpinjam, idpeminjam){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link1 = "query/PraktikumAlat1.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&id_peminjam=" + idpeminjam + "&tipe_pinjam=Praktikum";
+                
+                document.getElementById("idPraktikum").href = link1;
+                
+            }
+        </script>
     </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="QRCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="myForm" class="form-horizontal row-fluid" method="post" action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Scan QR Code</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div align="center">
+                                <h4>Scan disini</h4>
+                                <p>*Sorot serial number untuk mengetahui detail barang</p>
+                                
+                                <div style="margin-left: 25px;width: 250px; height: 250px;" id="qrcodebox"></div>
+                                
+                                <h5>Serial Number :</h5>
+                                <h2><span id="qrcode_result" onMouseOver="kirim()">LAI-RP01</span></h2>
+                                <br>
+                                <div class="table-responsive">
+                                    <div id="live_data"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="idPraktikum" href="#"><button class="btn btn-primary" >Proses</button></a>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
