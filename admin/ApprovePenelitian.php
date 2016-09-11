@@ -1052,8 +1052,8 @@ session_start();
                             $('#btnProses').hide();
                             $('#qrcodebox').WebcamQRCode({
                                     onQRCodeDecode: function( p_data ){
-                                                    $('#btnProses').show();
                                                     $('#qrcode_result').html( p_data );
+                                                    $('#btnProses').show();
                                                     AlatPraktikum();
                                                     kirim();
                                     }
