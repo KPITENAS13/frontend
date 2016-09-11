@@ -165,6 +165,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -179,6 +180,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -193,6 +195,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -207,6 +210,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -221,6 +225,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
@@ -235,6 +240,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat6Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode6' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
@@ -249,6 +255,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat7Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode7' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
@@ -263,6 +270,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat8Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode8' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-9</label>
@@ -277,6 +285,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat9Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode9' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat9();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-10</label>
@@ -291,6 +300,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat10Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode10' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat10();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -308,6 +318,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -322,6 +333,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -336,6 +348,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -350,6 +363,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -364,6 +378,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
@@ -378,6 +393,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat6Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode6' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
@@ -392,6 +408,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat7Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode7' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
@@ -406,6 +423,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat8Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode8' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-9</label>
@@ -420,6 +438,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat9Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode9' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat9();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -437,6 +456,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -451,6 +471,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -465,6 +486,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -479,6 +501,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -493,6 +516,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
@@ -507,6 +531,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat6Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode6' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
@@ -521,6 +546,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat7Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode7' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-8</label>
@@ -535,6 +561,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat8Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode8' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat8();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -552,6 +579,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -566,6 +594,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -580,6 +609,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -594,6 +624,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -608,6 +639,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
@@ -622,6 +654,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat6Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode6' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-7</label>
@@ -636,6 +669,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat7Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode7' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat7();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -653,6 +687,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -667,6 +702,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -681,6 +717,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -695,6 +732,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -709,6 +747,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-6</label>
@@ -723,6 +762,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat6Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode6' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat6();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -740,6 +780,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -754,6 +795,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -768,6 +810,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -782,6 +825,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-5</label>
@@ -796,6 +840,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat5Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode5' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat5();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -813,6 +858,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-2</label>
@@ -827,6 +873,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-3</label>
@@ -841,6 +888,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             <label class=control-label for=basicinput>Alat Ke-4</label>
@@ -855,6 +903,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat4Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode4' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat4();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -872,6 +921,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             
                                             </div></br>
@@ -887,6 +937,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             
                                             </div></br>
@@ -902,6 +953,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat3Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode3' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat3();><i class=icon-check name=btn> Kosong</i></button>
                                             
                                             </div></br>
@@ -920,6 +972,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br> 
                                         <label class = control-label for = basicinput>Alat Ke-2</label>
@@ -934,6 +987,7 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat2Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
+                                                <button id='btn_qrcode2' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat2();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
@@ -951,11 +1005,11 @@ session_start();
                                         }
                                         echo"
                                                 <a href=PeminjamanAlat1Penelitian.php?kode_pinjam=$r[kode_pinjam]&id_peminjam=$r[id_peminjam]&tipe_pinjam=Penelitian><button type=button class=btn-inverse><i class=icon-book name=btn></i></button></a>
-                                                <button id='btn_qrcode' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
+                                                <button id='btn_qrcode1' type=button class=btn-inverse data-toggle='modal' data-target='#QRCodeModal'><i class=icon-qrcode name=btn></i></button>
                                                 <button type=button class=btn-inverse onClick=Alat1();><i class=icon-check name=btn> Kosong</i></button>
                                             </div></br>
                                             ";
-                                    }
+                                        }
 
                                     echo"
                                         </div>
@@ -1048,13 +1102,92 @@ session_start();
         
         <script>
             (function($){
-                    $('#btn_qrcode').click(function(){
-                            $('#btnProses').hide();
+                    $('#btn_qrcode1').click(function(){
                             $('#qrcodebox').WebcamQRCode({
                                     onQRCodeDecode: function( p_data ){
                                                     $('#qrcode_result').html( p_data );
-                                                    $('#btnProses').show();
-                                                    AlatPraktikum();
+                                                    AlatPenelitian1();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode2').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian2();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode3').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian3();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode4').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian4();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode5').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian5();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode6').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian6();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode7').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian7();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode8').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian8();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode9').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian9();
+                                                    kirim();
+                                    }
+                            });
+                    });
+                    $('#btn_qrcode10').click(function(){
+                            $('#qrcodebox').WebcamQRCode({
+                                    onQRCodeDecode: function( p_data ){
+                                                    $('#qrcode_result').html( p_data );
+                                                    AlatPenelitian10();
                                                     kirim();
                                     }
                             });
@@ -1065,6 +1198,8 @@ session_start();
         <script type="text/javascript">
             /* Buat variabel global */
             var myAjax;
+            var kdpinjam = document.formApprove.inputKode_pinjam.value;
+            var idpeminjam = document.formApprove.inputId_peminjam.value;
 
             /* Koneksi ajax ke web browser */
             function ajax() {
@@ -1103,16 +1238,56 @@ session_start();
                         $('#live_data').html(myAjax.responseText);
                 }
             }
-            
-            function AlatPraktikum(){
-                var kdpinjam = document.formApprove.inputKode_pinjam.value;
-                var idpeminjam = document.formApprove.inputId_peminjam.value;
+                    
+            function AlatPenelitian1(){
                 var serialnum = document.getElementById("qrcode_result").innerHTML;
-                
                 var link1 = "query/PenelitianAlat1.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
-                
-                document.getElementById("idPraktikum").href = link1;
-                
+                document.getElementById("idPenelitian").href = link1;
+            }
+            function AlatPenelitian2(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link2 = "query/PenelitianAlat2.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link2;
+            }
+            function AlatPenelitian3(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link3 = "query/PenelitianAlat3.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link3;
+            }
+            function AlatPenelitian4(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link4 = "query/PenelitianAlat4.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link4;
+            }
+            function AlatPenelitian5(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link5 = "query/PenelitianAlat5.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link5;
+            }
+            function AlatPenelitian6(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link6 = "query/PenelitianAlat6.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link6;
+            }
+            function AlatPenelitian7(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link7 = "query/PenelitianAlat7.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link7;
+            }
+            function AlatPenelitian8(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link8 = "query/PenelitianAlat8.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link8;
+            }
+            function AlatPenelitian9(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link9 = "query/PenelitianAlat9.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link9;
+            }
+            function AlatPenelitian10(){
+                var serialnum = document.getElementById("qrcode_result").innerHTML;
+                var link10 = "query/PenelitianAlat10.php?serial_num=" + serialnum + "&kode_pinjam=" + kdpinjam + "&tipe_pinjam=Penelitian&id_peminjam=" + idpeminjam;
+                document.getElementById("idPenelitian").href = link10;
             }
         </script>
     </body>
@@ -1146,7 +1321,7 @@ session_start();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a id="idPraktikum" href="#"><button id="btnProses" class="btn btn-inverse" disabled>Proses</button></a>
+                    <a id="idPenelitian" href="#"><button id="btnProses" class="btn btn-inverse" disabled>Proses</button></a>
                 </div>
             </form>
         </div><!-- /.modal-content -->
