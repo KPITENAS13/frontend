@@ -114,7 +114,7 @@
                                         &bull;&nbsp;Panjang maksimal 9 digit.
                                         &bull;&nbsp;NID (Dosen) : 4 digit. &nbsp;&nbsp;&nbsp;&nbsp;
                                         &bull;&nbsp;NRP (Mahasiswa) : 9 digit." >
-                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        <span class="glyphicon glyphicon-info-sign"></span>
                                     </span>
                                 </div>
                             </div>
@@ -123,10 +123,11 @@
                                 <div class="input-group">
                                     <input type="password" name="sandi" class="form-control" required="required" maxlength="6" placeholder="Masukkan Kata Sandi">
                                     <span class="input-group-addon" data-toggle="popover" tabindex="2" data-trigger="hover" title="Informasi" data-content="
+                                        &bull;&nbsp;Kata sandi berupa angka.
                                         &bull;&nbsp;Panjang harus 6 digit.
                                         &bull;&nbsp;Nomor PIN (Mahasiswa).
                                         &bull;&nbsp;Acak (Dosen).">
-                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        <span class="glyphicon glyphicon-info-sign"></span>
                                     </span>
                                 </div>
                             </div>
